@@ -30,6 +30,14 @@ import {
   Search,
   Eye,
   X as XIcon,
+  Mail,
+  Phone,
+  AlertCircle,
+  CheckCircle,
+  Calendar as CalendarIcon,
+  CreditCard,
+  Settings,
+  FileText,
 } from "lucide-react";
 import toast from "react-hot-toast";
 
@@ -54,7 +62,7 @@ const Dashboard = () => {
       contact: "9933660022",
       bookingType: "Online",
       bookingId: "TID040",
-      addons: "Photography Package",
+      addons: "Lunch",
       paymentMethod: "Cash",
       amountPaid: "PHP 3,500",
       premiumStatus: "Premium",
@@ -73,7 +81,7 @@ const Dashboard = () => {
       contact: "9123456789",
       bookingType: "Online",
       bookingId: "TID076",
-      addons: "Romantic Setup",
+      addons: "Handwritten Gift",
       paymentMethod: "GCash",
       amountPaid: "PHP 4,500",
       premiumStatus: "Premium",
@@ -92,7 +100,7 @@ const Dashboard = () => {
       contact: "1122334455",
       bookingType: "Online",
       bookingId: "TID004",
-      addons: "Camping Gear",
+      addons: "Breakfast",
       paymentMethod: "Cash",
       amountPaid: "PHP 5,950",
       premiumStatus: "Premium",
@@ -112,7 +120,7 @@ const Dashboard = () => {
       bookingType: "Online",
       bookingId: "OID077",
       addons: "Parking",
-      paymentMethod: "Credit Card",
+      paymentMethod: "",
       amountPaid: "PHP 2,200",
       premiumStatus: "Non Premium",
       status: "Completed",
@@ -130,7 +138,7 @@ const Dashboard = () => {
       contact: "55883344",
       bookingType: "Online",
       bookingId: "OID052",
-      addons: "Lunch",
+      addons: "Parking",
       paymentMethod: "Cash",
       amountPaid: "PHP 630",
       premiumStatus: "Non Premium",
@@ -168,7 +176,7 @@ const Dashboard = () => {
       contact: "6633880022",
       bookingType: "Online",
       bookingId: "OID064",
-      addons: "Lunch",
+      addons: "",
       paymentMethod: "Cash",
       amountPaid: "PHP 1,000",
       premiumStatus: "Premium",
@@ -225,7 +233,7 @@ const Dashboard = () => {
       contact: "6677889900",
       bookingType: "Online",
       bookingId: "OID007",
-      addons: "Lunch",
+      addons: "",
       paymentMethod: "Card",
       amountPaid: "PHP 700",
       premiumStatus: "Non Premium",
@@ -237,16 +245,16 @@ const Dashboard = () => {
     },
     {
       id: 11,
-      name: "Sofia Evans",
-      date: "05/02/2025",
-      age: 39,
-      gender: "Female",
-      contact: "9911220033",
+      name: "David Morphy",
+      date: "08/02/2025",
+      age: 37,
+      gender: "Male",
+      contact: "2288116633",
       bookingType: "Online",
-      bookingId: "OID001",
-      addons: "Towel",
-      paymentMethod: "Cash",
-      amountPaid: "PHP 1,800",
+      bookingId: "OID055",
+      addons: "Dinner",
+      paymentMethod: "Card",
+      amountPaid: "PHP 1,780",
       premiumStatus: "Premium",
       status: "Completed",
       nextBooking: "05/15/2025",
@@ -256,23 +264,75 @@ const Dashboard = () => {
     },
     {
       id: 12,
-      name: "Liam Walker",
-      date: "07/02/2025",
-      age: 36,
+      name: "Emma Rodriguez",
+      date: "12/02/2025",
+      age: 23,
       gender: "Male",
-      contact: "7788992233",
+      contact: "3300557744",
       bookingType: "Online",
-      bookingId: "OID079",
-      addons: "Lunch",
-      paymentMethod: "Cash",
-      amountPaid: "PHP 1,200",
-      premiumStatus: "Premium",
+      bookingId: "OID067",
+      addons: "",
+      paymentMethod: "Card",
+      amountPaid: "PHP 710",
+      premiumStatus: "Non Premium",
       status: "Completed",
       nextBooking: "05/15/2025",
       experience: "Retro",
       time: "10:30 AM",
       cancellationReason: "",
     },
+  ]);
+
+  const [communicationLogs, setCommunicationLogs] = useState([
+    {
+      id: 1,
+      customerId: "CUS001",
+      type: "EMAIL",
+      subject: "Booking Confirmation",
+      status: "SENT",
+      timestamp: "2025-05-01T10:30:00",
+      response: "OPENED",
+    },
+    // Add more communication logs
+  ]);
+
+  const [customerProfiles, setCustomerProfiles] = useState([
+    {
+      id: "CUS001",
+      name: "Carol Jenkins",
+      preferences: {
+        preferredExperiences: ["Stargazing", "Camping"],
+        specialRequirements: "Vegetarian meals",
+        communicationPreference: "EMAIL",
+      },
+      loyaltyPoints: 150,
+      totalSpent: 15000,
+      lastVisit: "2025-04-15",
+      bookingHistory: [
+        {
+          id: "BOOK001",
+          experience: "Stargazing",
+          date: "2025-04-15",
+          status: "COMPLETED",
+          rating: 5,
+        },
+        // Add more booking history
+      ],
+    },
+    // Add more customer profiles
+  ]);
+
+  const [paymentRecords, setPaymentRecords] = useState([
+    {
+      id: "PAY001",
+      bookingId: "BOOK001",
+      customerId: "CUS001",
+      amount: 3500,
+      method: "CREDIT_CARD",
+      status: "COMPLETED",
+      timestamp: "2025-05-01T10:30:00",
+    },
+    // Add more payment records
   ]);
 
   const generateData = () => {
@@ -684,16 +744,32 @@ const Dashboard = () => {
               className="bg-blue-50 p-4 rounded-lg border border-blue-100 hover:shadow-md transition-shadow"
             >
               <div className="flex justify-between mb-2">
-                <h4 className="font-bold text-blue-800">{customer.name}</h4>
-                <span
-                  className={`px-2 py-1 rounded-full text-xs ${
-                    customer.status === "Completed"
-                      ? "bg-blue-100 text-blue-700"
-                      : "bg-yellow-100 text-yellow-700"
-                  }`}
-                >
-                  {customer.status}
-                </span>
+                <div>
+                  <h4 className="font-bold text-blue-800">{customer.name}</h4>
+                  <span className="text-sm text-gray-600">
+                    {customer.gender} | {customer.age} years
+                  </span>
+                </div>
+                <div className="flex flex-col items-end">
+                  <span
+                    className={`px-2 py-1 rounded-full text-xs ${
+                      customer.status === "Completed"
+                        ? "bg-blue-100 text-blue-700"
+                        : "bg-yellow-100 text-yellow-700"
+                    }`}
+                  >
+                    {customer.status}
+                  </span>
+                  <span
+                    className={`mt-1 px-2 py-1 rounded-full text-xs ${
+                      customer.premiumStatus === "Premium"
+                        ? "bg-purple-100 text-purple-700"
+                        : "bg-gray-100 text-gray-700"
+                    }`}
+                  >
+                    {customer.premiumStatus}
+                  </span>
+                </div>
               </div>
 
               <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
@@ -711,9 +787,9 @@ const Dashboard = () => {
                   </span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <span className="text-gray-500">Package:</span>
+                  <span className="text-gray-500">Add-ons:</span>
                   <span className="font-medium text-blue-700">
-                    {customer.addons}
+                    {customer.addons || "None"}
                   </span>
                 </div>
                 <div className="flex items-center gap-1">
@@ -885,24 +961,36 @@ const Dashboard = () => {
                 <Pie
                   data={[
                     {
-                      name: "Facial",
+                      name: "Camping",
                       value: Math.floor(Math.random() * 50 + 50),
                     },
                     {
-                      name: "Massage",
+                      name: "Stargazing",
                       value: Math.floor(Math.random() * 40 + 40),
                     },
                     {
-                      name: "Consultation",
+                      name: "Picnics",
                       value: Math.floor(Math.random() * 30 + 20),
                     },
                     {
-                      name: "Therapy",
+                      name: "SunsetDate",
                       value: Math.floor(Math.random() * 25 + 15),
                     },
                     {
-                      name: "Treatment",
+                      name: "UnderWater Dining",
                       value: Math.floor(Math.random() * 20 + 10),
+                    },
+                    {
+                      name: "Mystery Hunt",
+                      value: Math.floor(Math.random() * 35 + 25),
+                    },
+                    {
+                      name: "Retro",
+                      value: Math.floor(Math.random() * 30 + 20),
+                    },
+                    {
+                      name: "Coordinated",
+                      value: Math.floor(Math.random() * 40 + 30),
                     },
                   ]}
                   cx="50%"
@@ -912,8 +1000,8 @@ const Dashboard = () => {
                   dataKey="value"
                   label={({ name, value }) => `${name}: ${value}`}
                 >
-                  {[0, 1, 2, 3, 4].map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={BLUE_COLORS[index]} />
+                  {[0, 1, 2, 3, 4, 5, 6, 7].map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={BLUE_COLORS[index % BLUE_COLORS.length]} />
                   ))}
                 </Pie>
                 <Tooltip />
@@ -1592,6 +1680,115 @@ const Dashboard = () => {
     );
   };
 
+  const CustomerProfileTab = () => (
+    <>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="bg-white p-4 rounded-xl shadow">
+          <h3 className="font-semibold mb-4 text-blue-800">
+            👤 Customer Profiles
+          </h3>
+          <div className="space-y-4">
+            {customerProfiles.map((profile) => (
+              <div key={profile.id} className="border-b pb-4">
+                <div className="flex justify-between items-start">
+                  <div>
+                    <h4 className="font-medium">{profile.name}</h4>
+                    <p className="text-sm text-gray-600">ID: {profile.id}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-sm font-medium">
+                      Loyalty Points: {profile.loyaltyPoints}
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Last Visit: {profile.lastVisit}
+                    </p>
+                  </div>
+                </div>
+                <div className="mt-2">
+                  <p className="text-sm">
+                    <span className="font-medium">Preferred Experiences:</span>{" "}
+                    {profile.preferences.preferredExperiences.join(", ")}
+                  </p>
+                  <p className="text-sm">
+                    <span className="font-medium">Special Requirements:</span>{" "}
+                    {profile.preferences.specialRequirements}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="bg-white p-4 rounded-xl shadow">
+          <h3 className="font-semibold mb-4 text-blue-800">
+            📱 Communication Logs
+          </h3>
+          <div className="space-y-4">
+            {communicationLogs.map((log) => (
+              <div key={log.id} className="border-b pb-4">
+                <div className="flex justify-between items-start">
+                  <div>
+                    <h4 className="font-medium">{log.subject}</h4>
+                    <p className="text-sm text-gray-600">
+                      Type: {log.type} | Status: {log.status}
+                    </p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-sm text-gray-600">
+                      {new Date(log.timestamp).toLocaleString()}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-6 bg-white p-4 rounded-xl shadow">
+        <h3 className="font-semibold mb-4 text-blue-800">
+          💳 Payment History
+        </h3>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm text-left">
+            <thead>
+              <tr className="text-blue-800 border-b border-blue-100">
+                <th className="p-2">Payment ID</th>
+                <th className="p-2">Booking ID</th>
+                <th className="p-2">Amount</th>
+                <th className="p-2">Method</th>
+                <th className="p-2">Status</th>
+                <th className="p-2">Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {paymentRecords.map((payment) => (
+                <tr key={payment.id} className="border-b border-blue-50 hover:bg-blue-50">
+                  <td className="p-2">{payment.id}</td>
+                  <td className="p-2">{payment.bookingId}</td>
+                  <td className="p-2">₱{payment.amount.toLocaleString()}</td>
+                  <td className="p-2">{payment.method}</td>
+                  <td className="p-2">
+                    <span className={`px-2 py-1 rounded-full text-xs ${
+                      payment.status === "COMPLETED"
+                        ? "bg-green-100 text-green-700"
+                        : "bg-yellow-100 text-yellow-700"
+                    }`}>
+                      {payment.status}
+                    </span>
+                  </td>
+                  <td className="p-2">
+                    {new Date(payment.timestamp).toLocaleDateString()}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </>
+  );
+
   return (
     <div className="p-4 bg-gray-50 min-h-screen">
       <div className="mb-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -1663,6 +1860,16 @@ const Dashboard = () => {
             Customer Analysis
           </button>
           <button
+            onClick={() => setActiveTab("profiles")}
+            className={`px-4 py-2 font-medium text-sm ${
+              activeTab === "profiles"
+                ? "border-b-2 border-blue-500 text-blue-600"
+                : "text-gray-500"
+            }`}
+          >
+            Customer Profiles
+          </button>
+          <button
             onClick={() => setActiveTab("feedback")}
             className={`px-4 py-2 font-medium text-sm ${
               activeTab === "feedback"
@@ -1687,7 +1894,11 @@ const Dashboard = () => {
 
       {/* Content */}
       <div className="space-y-6">
-        <TabContent />
+        {activeTab === "profiles" ? (
+          <CustomerProfileTab />
+        ) : (
+          <TabContent />
+        )}
       </div>
     </div>
   );
