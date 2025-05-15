@@ -52,16 +52,16 @@ const Dashboard = () => {
       age: 56,
       gender: "Female",
       contact: "9933660022",
-      bookingType: "Walk-in",
-      bookingId: "WID040",
-      addons: "Lunch",
+      bookingType: "Online",
+      bookingId: "TID040",
+      addons: "Photography Package",
       paymentMethod: "Cash",
-      amountPaid: "PHP 1,300",
+      amountPaid: "PHP 3,500",
       premiumStatus: "Premium",
       status: "Completed",
-      nextAppointment: "05/15/2025",
-      service: "Massage",
-      time: "10:30 AM",
+      nextBooking: "05/15/2025",
+      experience: "Stargazing",
+      time: "7:30 PM",
       cancellationReason: "",
     },
     {
@@ -71,16 +71,16 @@ const Dashboard = () => {
       age: 28,
       gender: "Male",
       contact: "9123456789",
-      bookingType: "Walk-in",
-      bookingId: "WID076",
-      addons: "Handwritten Gift",
+      bookingType: "Online",
+      bookingId: "TID076",
+      addons: "Romantic Setup",
       paymentMethod: "GCash",
-      amountPaid: "PHP 1,500",
+      amountPaid: "PHP 4,500",
       premiumStatus: "Premium",
       status: "Completed",
-      nextAppointment: "05/15/2025",
-      service: "Massage",
-      time: "10:30 AM",
+      nextBooking: "05/15/2025",
+      experience: "SunsetDate",
+      time: "5:00 PM",
       cancellationReason: "",
     },
     {
@@ -90,16 +90,16 @@ const Dashboard = () => {
       age: 60,
       gender: "Male",
       contact: "1122334455",
-      bookingType: "Walk-in",
-      bookingId: "WID004",
-      addons: "Breakfast",
+      bookingType: "Online",
+      bookingId: "TID004",
+      addons: "Camping Gear",
       paymentMethod: "Cash",
-      amountPaid: "PHP 950",
+      amountPaid: "PHP 5,950",
       premiumStatus: "Premium",
       status: "Completed",
-      nextAppointment: "05/15/2025",
-      service: "Massage",
-      time: "10:30 AM",
+      nextBooking: "05/15/2025",
+      experience: "Camping",
+      time: "2:00 PM",
       cancellationReason: "",
     },
     {
@@ -116,9 +116,9 @@ const Dashboard = () => {
       amountPaid: "PHP 2,200",
       premiumStatus: "Non Premium",
       status: "Completed",
-      nextAppointment: "05/15/2025",
-      service: "Massage",
-      time: "10:30 AM",
+      nextBooking: "05/15/2025",
+      experience: "Picnics",
+      time: "3:30 PM",
       cancellationReason: "",
     },
     {
@@ -128,15 +128,15 @@ const Dashboard = () => {
       age: 24,
       gender: "Female",
       contact: "55883344",
-      bookingType: "Walk-in",
-      bookingId: "WID052",
+      bookingType: "Online",
+      bookingId: "OID052",
       addons: "Lunch",
       paymentMethod: "Cash",
       amountPaid: "PHP 630",
       premiumStatus: "Non Premium",
       status: "Completed",
-      nextAppointment: "05/15/2025",
-      service: "Massage",
+      nextBooking: "05/15/2025",
+      experience: "Retro",
       time: "10:30 AM",
       cancellationReason: "",
     },
@@ -147,15 +147,15 @@ const Dashboard = () => {
       age: 57,
       gender: "Female",
       contact: "8811447700",
-      bookingType: "Walk-in",
-      bookingId: "WID028",
+      bookingType: "Online",
+      bookingId: "OID028",
       addons: "Extra Bed",
       paymentMethod: "Cash",
       amountPaid: "PHP 1,150",
       premiumStatus: "Premium",
       status: "Completed",
-      nextAppointment: "05/15/2025",
-      service: "Massage",
+      nextBooking: "05/15/2025",
+      experience: "Mystery Hunt",
       time: "10:30 AM",
       cancellationReason: "",
     },
@@ -166,15 +166,15 @@ const Dashboard = () => {
       age: 48,
       gender: "Female",
       contact: "6633880022",
-      bookingType: "Walk-in",
-      bookingId: "WID064",
+      bookingType: "Online",
+      bookingId: "OID064",
       addons: "Lunch",
       paymentMethod: "Cash",
       amountPaid: "PHP 1,000",
       premiumStatus: "Premium",
       status: "Completed",
-      nextAppointment: "05/15/2025",
-      service: "Massage",
+      nextBooking: "05/15/2025",
+      experience: "Coordinated",
       time: "10:30 AM",
       cancellationReason: "",
     },
@@ -185,15 +185,15 @@ const Dashboard = () => {
       age: 31,
       gender: "Female",
       contact: "7799113355",
-      bookingType: "Walk-in",
-      bookingId: "WID016",
+      bookingType: "Online",
+      bookingId: "OID016",
       addons: "Massage",
       paymentMethod: "Cash",
       amountPaid: "PHP 1,400",
       premiumStatus: "Premium",
       status: "Completed",
-      nextAppointment: "05/15/2025",
-      service: "Massage",
+      nextBooking: "05/15/2025",
+      experience: "Retro",
       time: "10:30 AM",
       cancellationReason: "",
     },
@@ -211,8 +211,8 @@ const Dashboard = () => {
       amountPaid: "PHP 920",
       premiumStatus: "Non Premium",
       status: "Completed",
-      nextAppointment: "05/15/2025",
-      service: "Massage",
+      nextBooking: "05/15/2025",
+      experience: "Picnics",
       time: "10:30 AM",
       cancellationReason: "",
     },
@@ -230,8 +230,8 @@ const Dashboard = () => {
       amountPaid: "PHP 700",
       premiumStatus: "Non Premium",
       status: "Completed",
-      nextAppointment: "05/15/2025",
-      service: "Massage",
+      nextBooking: "05/15/2025",
+      experience: "Retro",
       time: "10:30 AM",
       cancellationReason: "",
     },
@@ -242,15 +242,15 @@ const Dashboard = () => {
       age: 39,
       gender: "Female",
       contact: "9911220033",
-      bookingType: "Walk-in",
-      bookingId: "WID001",
+      bookingType: "Online",
+      bookingId: "OID001",
       addons: "Towel",
       paymentMethod: "Cash",
       amountPaid: "PHP 1,800",
       premiumStatus: "Premium",
       status: "Completed",
-      nextAppointment: "05/15/2025",
-      service: "Massage",
+      nextBooking: "05/15/2025",
+      experience: "Mystery Hunt",
       time: "10:30 AM",
       cancellationReason: "",
     },
@@ -261,15 +261,15 @@ const Dashboard = () => {
       age: 36,
       gender: "Male",
       contact: "7788992233",
-      bookingType: "Walk-in",
-      bookingId: "WID079",
+      bookingType: "Online",
+      bookingId: "OID079",
       addons: "Lunch",
       paymentMethod: "Cash",
       amountPaid: "PHP 1,200",
       premiumStatus: "Premium",
       status: "Completed",
-      nextAppointment: "05/15/2025",
-      service: "Massage",
+      nextBooking: "05/15/2025",
+      experience: "Retro",
       time: "10:30 AM",
       cancellationReason: "",
     },
@@ -311,7 +311,7 @@ const Dashboard = () => {
           bookings: Math.floor((Math.sin(i / 3) + 2) * 2 * peakFactor) + 1,
           cancellations: Math.floor((Math.sin(i / 5) + 1) * 0.8),
           rating: (4 + Math.sin(i / 6) * 0.8).toFixed(1),
-          revenue: Math.floor((Math.sin(i / 4) + 2) * 700 * peakFactor + 500),
+          revenue: Math.floor((Math.sin(i / 4) + 2) * 2000 * peakFactor + 1500),
         };
       } else if (period === "monthly") {
         d.setDate(d.getDate() - i);
@@ -375,28 +375,27 @@ const Dashboard = () => {
       {
         id: 1,
         name: "Carol Jenkins",
-        date: "05/01/2025", 
-        time: "10:30 AM",
-        service: "Massage",
+        date: "05/01/2025",
+        time: "7:30 PM",
+        experience: "Stargazing",
         status: "Confirmed",
         contact: "Pending",
       },
       {
         id: 2,
         name: "Juan Dela Cruz",
-        date: "05/01/2025", 
-        time: "2:00 PM",
-        service: "Facial",
+        date: "05/01/2025",
+        time: "5:00 PM",
+        experience: "SunsetDate",
         status: "Confirmed",
         contact: "Pending",
       },
-
       {
         id: 3,
         name: "Adam Hall",
         date: "05/01/2025",
-        time: "11:00 AM",
-        service: "Body Treatment",
+        time: "2:00 PM",
+        experience: "Camping",
         status: "Confirmed",
         contact: "Reminded",
       },
@@ -405,7 +404,7 @@ const Dashboard = () => {
         name: "Maria Santos",
         date: "05/01/2025",
         time: "3:30 PM",
-        service: "Consultation",
+        experience: "Picnics",
         status: "Rescheduled",
         contact: "Reminded",
       },
@@ -414,7 +413,7 @@ const Dashboard = () => {
         name: "Connor Moore",
         date: "05/01/2025",
         time: "9:15 AM",
-        service: "Massage",
+        experience: "Retro",
         status: "Confirmed",
         contact: "Pending",
       },
@@ -423,7 +422,7 @@ const Dashboard = () => {
         name: "Ashley Diaz",
         date: "05/01/2025",
         time: "9:15 AM",
-        service: "Massage",
+        experience: "Mystery Hunt",
         status: "Confirmed",
         contact: "Pending",
       },
@@ -432,7 +431,7 @@ const Dashboard = () => {
         name: "Ella Richardson",
         date: "05/01/2025",
         time: "9:15 AM",
-        service: "Massage",
+        experience: "Coordinated",
         status: "Confirmed",
         contact: "Pending",
       },
@@ -441,7 +440,7 @@ const Dashboard = () => {
         name: "Allison White",
         date: "05/01/2025",
         time: "9:15 AM",
-        service: "Massage",
+        experience: "Retro",
         status: "Confirmed",
         contact: "Pending",
       },
@@ -450,16 +449,21 @@ const Dashboard = () => {
         name: "Charles Kelley",
         date: "05/02/2025",
         time: "9:15 AM",
-        service: "Massage",
+        experience: "Picnics",
         status: "Confirmed",
         contact: "Pending",
       },
     ];
 
-    const customerSegments = [
-      { name: "New", value: 28 },
-      { name: "Returning", value: 45 },
-      { name: "Loyal", value: 27 },
+    const experienceCategories = [
+      { name: "Camping", value: Math.floor(Math.random() * 30 + 50) },
+      { name: "Stargazing", value: Math.floor(Math.random() * 25 + 45) },
+      { name: "Picnics", value: Math.floor(Math.random() * 20 + 40) },
+      { name: "SunsetDate", value: Math.floor(Math.random() * 35 + 55) },
+      { name: "UnderWater Dining", value: Math.floor(Math.random() * 15 + 35) },
+      { name: "Mystery Hunt", value: Math.floor(Math.random() * 20 + 40) },
+      { name: "Retro", value: Math.floor(Math.random() * 25 + 45) },
+      { name: "Coordinated", value: Math.floor(Math.random() * 30 + 50) },
     ];
 
     const feedbackCategories = [
@@ -489,7 +493,7 @@ const Dashboard = () => {
       totalCommunications,
     });
     setUpcoming(upcomingBookings);
-    setCustomerData(customerSegments);
+    setCustomerData(experienceCategories);
     setFeedbackData(feedbackCategories);
     setMarketingData(marketingChannels);
 
@@ -559,7 +563,7 @@ const Dashboard = () => {
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         <div className="bg-white p-4 rounded-xl shadow border-l-4 border-blue-500">
           <div className="flex justify-between items-center">
-            <p className="text-sm text-gray-500">Bookings</p>
+            <p className="text-sm text-gray-500">Experiences</p>
             <Calendar className="h-5 w-5 text-blue-500" />
           </div>
           <h2 className="text-2xl font-bold text-blue-700">
@@ -586,14 +590,14 @@ const Dashboard = () => {
         </div>
         <div className="bg-white p-4 rounded-xl shadow border-l-4 border-blue-500">
           <div className="flex justify-between items-center">
-            <p className="text-sm text-gray-500">No-shows</p>
+            <p className="text-sm text-gray-500">Cancellations</p>
             <X className="h-5 w-5 text-blue-500" />
           </div>
           <h2 className="text-2xl font-bold text-blue-700">{stats.noShows}</h2>
         </div>
         <div className="bg-white p-4 rounded-xl shadow border-l-4 border-blue-500">
           <div className="flex justify-between items-center">
-            <p className="text-sm text-gray-500">Retention</p>
+            <p className="text-sm text-gray-500">Return Rate</p>
             <Users className="h-5 w-5 text-blue-500" />
           </div>
           <h2 className="text-2xl font-bold text-blue-700">
@@ -602,7 +606,7 @@ const Dashboard = () => {
         </div>
         <div className="bg-white p-4 rounded-xl shadow border-l-4 border-blue-500">
           <div className="flex justify-between items-center">
-            <p className="text-sm text-gray-500">Communications</p>
+            <p className="text-sm text-gray-500">Inquiries</p>
             <MessageSquare className="h-5 w-5 text-blue-500" />
           </div>
           <h2 className="text-2xl font-bold text-blue-700">
@@ -615,7 +619,7 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
         <div className="bg-white p-4 rounded-xl shadow border-t-4 border-blue-500">
           <div className="flex justify-between items-center mb-2">
-            <h3 className="font-semibold text-blue-700">📈 Booking Trends</h3>
+            <h3 className="font-semibold text-blue-700">📈 Experience Bookings</h3>
             <span className="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full">
               {period}
             </span>
@@ -638,7 +642,7 @@ const Dashboard = () => {
         </div>
         <div className="bg-white p-4 rounded-xl shadow border-t-4 border-blue-500">
           <div className="flex justify-between items-center mb-2">
-            <h3 className="font-semibold text-blue-700">🌟 Satisfaction</h3>
+            <h3 className="font-semibold text-blue-700">🌟 Experience Ratings</h3>
             <span className="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full">
               {period}
             </span>
@@ -661,44 +665,19 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Revenue Chart */}
-      <div className="bg-white p-4 rounded-xl shadow mt-6 border-t-4 border-blue-500">
-        <div className="flex justify-between items-center mb-2">
-          <h3 className="font-semibold text-blue-700">💰 Revenue Trends</h3>
-          <span className="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full">
-            {period}
-          </span>
-        </div>
-        <ResponsiveContainer width="100%" height={200}>
-          <LineChart data={bookingData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="date" />
-            <YAxis domain={getRevenueDomain()} />
-            <Tooltip />
-            <Line
-              type="monotone"
-              dataKey="revenue"
-              name="Revenue (₱)"
-              stroke="#3b82f6"
-              strokeWidth={2}
-            />
-          </LineChart>
-        </ResponsiveContainer>
-      </div>
-
-      {/* Recent Customer Information - New Addition */}
+      {/* Recent Customer Information */}
       <div className="bg-white p-4 rounded-xl shadow mt-6 border-t-4 border-blue-500">
         <div className="flex justify-between items-center mb-4">
           <h3 className="font-semibold text-blue-700 flex items-center gap-2">
             <User className="h-5 w-5 text-blue-500" />
-            Recent Customer Information
+            Recent Experience Bookings
           </h3>
           <span className="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full">
-            Premium Clients
+            Latest Adventures
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4  h-[13rem] overflow-auto ">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-[13rem] overflow-auto">
           {recentCustomers.map((customer, index) => (
             <div
               key={index}
@@ -726,15 +705,15 @@ const Dashboard = () => {
                   </span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <span className="text-gray-500">ID:</span>
+                  <span className="text-gray-500">Experience:</span>
                   <span className="font-medium text-blue-700">
-                    {customer.bookingId}
+                    {customer.experience}
                   </span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <span className="text-gray-500">Age/Gender:</span>
+                  <span className="text-gray-500">Package:</span>
                   <span className="font-medium text-blue-700">
-                    {customer.age}, {customer.gender}
+                    {customer.addons}
                   </span>
                 </div>
                 <div className="flex items-center gap-1">
@@ -744,21 +723,9 @@ const Dashboard = () => {
                   </span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <span className="text-gray-500">Type:</span>
+                  <span className="text-gray-500">Booking:</span>
                   <span className="font-medium text-blue-700">
                     {customer.bookingType}
-                  </span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <span className="text-gray-500">Add-ons:</span>
-                  <span className="font-medium text-blue-700">
-                    {customer.addons || "None"}
-                  </span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <span className="text-gray-500">Payment:</span>
-                  <span className="font-medium text-blue-700">
-                    {customer.paymentMethod}
                   </span>
                 </div>
                 <div className="flex items-center gap-1">
@@ -774,12 +741,12 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Upcoming Appointments */}
+      {/* Upcoming Experiences */}
       <div className="bg-white p-4 rounded-xl shadow mt-6 border-t-4 border-blue-500">
         <div className="flex justify-between items-center mb-4">
           <h3 className="font-semibold text-blue-700 flex items-center gap-2">
             <Calendar className="h-5 w-5 text-blue-500" />
-            Upcoming Appointments
+            Upcoming Experiences
           </h3>
           <button
             onClick={sendReminders}
@@ -797,7 +764,7 @@ const Dashboard = () => {
                 <th className="p-2">Customer</th>
                 <th className="p-2">Date</th>
                 <th className="p-2">Time</th>
-                <th className="p-2">Service</th>
+                <th className="p-2">Experience</th>
                 <th className="p-2">Status</th>
                 <th className="p-2">Communication</th>
               </tr>
@@ -812,7 +779,7 @@ const Dashboard = () => {
                   <td className="p-2 font-medium">{appt.name}</td>
                   <td className="p-2">{appt.date}</td>
                   <td className="p-2">{appt.time}</td>
-                  <td className="p-2">{appt.service}</td>
+                  <td className="p-2">{appt.experience}</td>
                   <td className="p-2">
                     <span
                       className={`px-2 py-1 rounded-full text-xs ${
@@ -858,7 +825,7 @@ const Dashboard = () => {
       <>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white p-4 rounded-xl shadow md:col-span-2">
-            <h3 className="font-semibold mb-2">📊 Booking Distribution</h3>
+            <h3 className="font-semibold mb-2">📊 Experience Bookings</h3>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={bookingData}>
                 <XAxis dataKey="date" />
@@ -875,20 +842,19 @@ const Dashboard = () => {
             </ResponsiveContainer>
           </div>
           <div className="bg-white p-4 rounded-xl shadow">
-            <h3 className="font-semibold mb-2">🔄 Booking Status</h3>
+            <h3 className="font-semibold mb-2">🎯 Popular Experiences</h3>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
                 <Pie
                   data={[
-                    {
-                      name: "Confirmed",
-                      value: stats.totalBookings - stats.noShows,
-                    },
-                    { name: "No-shows", value: stats.noShows },
-                    {
-                      name: "Rescheduled",
-                      value: Math.floor(stats.totalBookings * 0.15),
-                    },
+                    { name: "Camping", value: 35 },
+                    { name: "Stargazing", value: 25 },
+                    { name: "Picnics", value: 20 },
+                    { name: "SunsetDate", value: 30 },
+                    { name: "UnderWater Dining", value: 15 },
+                    { name: "Mystery Hunt", value: 18 },
+                    { name: "Retro", value: 22 },
+                    { name: "Coordinated", value: 28 },
                   ]}
                   cx="50%"
                   cy="50%"
@@ -901,8 +867,8 @@ const Dashboard = () => {
                     `${name}: ${(percent * 100).toFixed(0)}%`
                   }
                 >
-                  {[0, 1, 2].map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={BLUE_COLORS[index]} />
+                  {[0, 1, 2, 3, 4, 5, 6, 7].map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={BLUE_COLORS[index % BLUE_COLORS.length]} />
                   ))}
                 </Pie>
                 <Tooltip />
@@ -913,7 +879,7 @@ const Dashboard = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-white p-4 rounded-xl shadow">
-            <h3 className="font-semibold mb-2">📆 Service Type Distribution</h3>
+            <h3 className="font-semibold mb-2">📆 Experience Type Distribution</h3>
             <ResponsiveContainer width="100%" height={250}>
               <PieChart>
                 <Pie
@@ -1031,7 +997,7 @@ const Dashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-white p-4 rounded-xl shadow">
             <h3 className="font-semibold mb-2 text-blue-800">
-              👥 Customer Segments
+              👥 Experience Segments
             </h3>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
@@ -1060,7 +1026,7 @@ const Dashboard = () => {
           </div>
           <div className="bg-white p-4 rounded-xl shadow">
             <h3 className="font-semibold mb-2 text-blue-800">
-              🔄 Customer Lifecycle
+              🔄 Experience Lifecycle
             </h3>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart
@@ -1095,34 +1061,34 @@ const Dashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-white p-4 rounded-xl shadow">
             <h3 className="font-semibold mb-2 text-blue-800">
-              💼 Top Services by Customer
+              💼 Top Experiences by Customer
             </h3>
             <ResponsiveContainer width="100%" height={250}>
               <BarChart
                 data={[
                   {
-                    service: "Facial",
+                    experience: "Camping",
                     count: Math.floor(Math.random() * 50 + 100),
                   },
                   {
-                    service: "Massage",
+                    experience: "Stargazing",
                     count: Math.floor(Math.random() * 40 + 80),
                   },
                   {
-                    service: "Consultation",
+                    experience: "Picnics",
                     count: Math.floor(Math.random() * 30 + 60),
                   },
                   {
-                    service: "Therapy",
+                    experience: "SunsetDate",
                     count: Math.floor(Math.random() * 25 + 50),
                   },
                   {
-                    service: "Treatment",
+                    experience: "UnderWater Dining",
                     count: Math.floor(Math.random() * 20 + 40),
                   },
                 ]}
               >
-                <XAxis dataKey="service" />
+                <XAxis dataKey="experience" />
                 <YAxis />
                 <Tooltip />
                 <Bar dataKey="count" name="Customers" fill="#42a5f5" />
@@ -1131,7 +1097,7 @@ const Dashboard = () => {
           </div>
           <div className="bg-white p-4 rounded-xl shadow">
             <h3 className="font-semibold mb-2 text-blue-800">
-              💰 Average Spend per Customer
+              💰 Average Spend per Experience
             </h3>
             <ResponsiveContainer width="100%" height={250}>
               <LineChart
@@ -1179,7 +1145,7 @@ const Dashboard = () => {
 
         <div className="bg-white p-4 rounded-xl shadow">
           <h3 className="font-semibold mb-2 text-blue-800">
-            📊 Customer Communication Effectiveness
+            📊 Experience Communication Effectiveness
           </h3>
           <ResponsiveContainer width="100%" height={250}>
             <BarChart
@@ -1221,7 +1187,6 @@ const Dashboard = () => {
 
   // Feedback Tab
   const FeedbackTab = () => {
-    // Blue color palette - same as in CustomersTab for consistency
     const BLUE_COLORS = [
       "#0d47a1",
       "#1565c0",
@@ -1336,28 +1301,28 @@ const Dashboard = () => {
               <BarChart
                 data={[
                   {
-                    service: "Facial",
+                    experience: "Camping",
                     rate: Math.floor(Math.random() * 20 + 60),
                   },
                   {
-                    service: "Massage",
+                    experience: "Stargazing",
                     rate: Math.floor(Math.random() * 20 + 70),
                   },
                   {
-                    service: "Consultation",
+                    experience: "Picnics",
                     rate: Math.floor(Math.random() * 20 + 50),
                   },
                   {
-                    service: "Therapy",
+                    experience: "SunsetDate",
                     rate: Math.floor(Math.random() * 20 + 65),
                   },
                   {
-                    service: "Treatment",
+                    experience: "UnderWater Dining",
                     rate: Math.floor(Math.random() * 20 + 55),
                   },
                 ]}
               >
-                <XAxis dataKey="service" />
+                <XAxis dataKey="experience" />
                 <YAxis domain={[0, 100]} />
                 <Tooltip />
                 <Bar dataKey="rate" name="Response Rate (%)" fill="#42a5f5" />
@@ -1375,7 +1340,7 @@ const Dashboard = () => {
               <thead>
                 <tr className="text-blue-800 border-b border-blue-100">
                   <th className="p-2">Customer</th>
-                  <th className="p-2">Service</th>
+                  <th className="p-2">Experience</th>
                   <th className="p-2">Date</th>
                   <th className="p-2">Rating</th>
                   <th className="p-2">Comment</th>
@@ -1383,48 +1348,48 @@ const Dashboard = () => {
               </thead>
               <tbody>
                 <tr className="border-b border-blue-50 hover:bg-blue-50">
-                  <td className="p-2">Customer 34</td>
-                  <td className="p-2">Facial</td>
+                  <td className="p-2">Carol Jenkins</td>
+                  <td className="p-2">Stargazing</td>
                   <td className="p-2">May 10, 2025</td>
                   <td className="p-2 text-blue-600">5 ⭐</td>
                   <td className="p-2">
-                    Excellent service, very relaxing environment!
+                    Amazing stargazing experience! The night sky was breathtaking!
                   </td>
                 </tr>
                 <tr className="border-b border-blue-50 hover:bg-blue-50">
-                  <td className="p-2">Customer 56</td>
-                  <td className="p-2">Massage</td>
+                  <td className="p-2">Juan Dela Cruz</td>
+                  <td className="p-2">SunsetDate</td>
                   <td className="p-2">May 9, 2025</td>
                   <td className="p-2 text-blue-600">4 ⭐</td>
                   <td className="p-2">
-                    Good experience but waiting time was long.
+                    Beautiful sunset view, romantic setup was perfect!
                   </td>
                 </tr>
                 <tr className="border-b border-blue-50 hover:bg-blue-50">
-                  <td className="p-2">Customer 78</td>
-                  <td className="p-2">Therapy</td>
+                  <td className="p-2">Adam Hall</td>
+                  <td className="p-2">Camping</td>
                   <td className="p-2">May 8, 2025</td>
                   <td className="p-2 text-blue-600">5 ⭐</td>
                   <td className="p-2">
-                    Therapist was knowledgeable and professional.
+                    Great camping experience with excellent facilities!
                   </td>
                 </tr>
                 <tr className="border-b border-blue-50 hover:bg-blue-50">
-                  <td className="p-2">Customer 92</td>
-                  <td className="p-2">Consultation</td>
+                  <td className="p-2">Maria Santos</td>
+                  <td className="p-2">Picnics</td>
                   <td className="p-2">May 7, 2025</td>
-                  <td className="p-2 text-blue-600">3 ⭐</td>
+                  <td className="p-2 text-blue-600">4 ⭐</td>
                   <td className="p-2">
-                    Advice was helpful but follow-up was lacking.
+                    Lovely picnic setup, food was delicious!
                   </td>
                 </tr>
                 <tr className="border-b border-blue-50 hover:bg-blue-50">
-                  <td className="p-2">Customer 17</td>
-                  <td className="p-2">Treatment</td>
+                  <td className="p-2">Connor Moore</td>
+                  <td className="p-2">UnderWater Dining</td>
                   <td className="p-2">May 6, 2025</td>
                   <td className="p-2 text-blue-600">5 ⭐</td>
                   <td className="p-2">
-                    Amazing results! Will definitely come back.
+                    Unique underwater dining experience, unforgettable evening!
                   </td>
                 </tr>
               </tbody>
@@ -1437,7 +1402,6 @@ const Dashboard = () => {
 
   // Marketing Tab
   const MarketingTab = () => {
-    // Blue color palette - same as previous tabs for consistency
     const BLUE_COLORS = [
       "#0d47a1",
       "#1565c0",
@@ -1453,43 +1417,42 @@ const Dashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-white p-4 rounded-xl shadow">
             <h3 className="font-semibold mb-2 text-blue-800">
-              🎯 Marketing Channels Performance
+              🎯 Experience Popularity
             </h3>
             <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={marketingData}>
+              <BarChart
+                data={[
+                  { name: "Camping", bookings: 150, satisfaction: 92 },
+                  { name: "Stargazing", bookings: 120, satisfaction: 95 },
+                  { name: "Picnics", bookings: 90, satisfaction: 88 },
+                  { name: "SunsetDate", bookings: 140, satisfaction: 94 },
+                  { name: "UnderWater Dining", bookings: 70, satisfaction: 96 },
+                  { name: "Mystery Hunt", bookings: 85, satisfaction: 91 },
+                  { name: "Retro", bookings: 95, satisfaction: 89 },
+                  { name: "Coordinated", bookings: 130, satisfaction: 93 },
+                ]}
+              >
                 <XAxis dataKey="name" />
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="conversions" name="Conversions" fill="#1976d2" />
-                <Bar dataKey="roi" name="ROI (%)" fill="#64b5f6" />
+                <Bar dataKey="bookings" name="Bookings" fill="#1976d2" />
+                <Bar dataKey="satisfaction" name="Satisfaction %" fill="#64b5f6" />
               </BarChart>
             </ResponsiveContainer>
           </div>
           <div className="bg-white p-4 rounded-xl shadow">
             <h3 className="font-semibold mb-2 text-blue-800">
-              💌 Campaign Effectiveness
+              💌 Seasonal Experience Trends
             </h3>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
                 <Pie
                   data={[
-                    {
-                      name: "New Customer Promo",
-                      value: Math.floor(Math.random() * 30 + 50),
-                    },
-                    {
-                      name: "Loyalty Rewards",
-                      value: Math.floor(Math.random() * 40 + 70),
-                    },
-                    {
-                      name: "Seasonal Offer",
-                      value: Math.floor(Math.random() * 25 + 40),
-                    },
-                    {
-                      name: "Referral Program",
-                      value: Math.floor(Math.random() * 20 + 30),
-                    },
+                    { name: "Summer Adventures", value: 40 },
+                    { name: "Romantic Experiences", value: 30 },
+                    { name: "Special Occasions", value: 20 },
+                    { name: "Weekend Getaways", value: 10 },
                   ]}
                   cx="50%"
                   cy="50%"
@@ -1518,17 +1481,17 @@ const Dashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-white p-4 rounded-xl shadow">
             <h3 className="font-semibold mb-2 text-blue-800">
-              📱 Digital Engagement
+              📱 Booking Channels
             </h3>
             <ResponsiveContainer width="100%" height={250}>
               <LineChart
                 data={[
-                  { month: "Jan", website: 1200, social: 800 },
-                  { month: "Feb", website: 1300, social: 950 },
-                  { month: "Mar", website: 1400, social: 1100 },
-                  { month: "Apr", website: 1350, social: 1250 },
-                  { month: "May", website: 1450, social: 1400 },
-                  { month: "Jun", website: 1550, social: 1600 },
+                  { month: "Jan", website: 1200, mobile: 800, partner: 400 },
+                  { month: "Feb", website: 1300, mobile: 950, partner: 450 },
+                  { month: "Mar", website: 1400, mobile: 1100, partner: 500 },
+                  { month: "Apr", website: 1350, mobile: 1250, partner: 550 },
+                  { month: "May", website: 1450, mobile: 1400, partner: 600 },
+                  { month: "Jun", website: 1550, mobile: 1600, partner: 650 },
                 ]}
               >
                 <XAxis dataKey="month" />
@@ -1538,15 +1501,22 @@ const Dashboard = () => {
                 <Line
                   type="monotone"
                   dataKey="website"
-                  name="Website Visits"
+                  name="Website Bookings"
                   stroke="#0d47a1"
                   strokeWidth={2}
                 />
                 <Line
                   type="monotone"
-                  dataKey="social"
-                  name="Social Engagement"
+                  dataKey="mobile"
+                  name="Mobile App"
                   stroke="#42a5f5"
+                  strokeWidth={2}
+                />
+                <Line
+                  type="monotone"
+                  dataKey="partner"
+                  name="Partner Platforms"
+                  stroke="#90caf9"
                   strokeWidth={2}
                 />
               </LineChart>
@@ -1554,39 +1524,35 @@ const Dashboard = () => {
           </div>
           <div className="bg-white p-4 rounded-xl shadow">
             <h3 className="font-semibold mb-2 text-blue-800">
-              🔄 Customer Acquisition Cost
+              🎯 Experience Package Performance
             </h3>
             <ResponsiveContainer width="100%" height={250}>
               <BarChart
                 data={[
                   {
-                    channel: "Organic",
-                    cost: Math.floor(Math.random() * 200 + 300),
+                    package: "Adventure Bundle",
+                    revenue: Math.floor(Math.random() * 20000 + 30000),
                   },
                   {
-                    channel: "Paid Social",
-                    cost: Math.floor(Math.random() * 300 + 500),
+                    package: "Romantic Getaway",
+                    revenue: Math.floor(Math.random() * 25000 + 35000),
                   },
                   {
-                    channel: "Email",
-                    cost: Math.floor(Math.random() * 150 + 250),
+                    package: "Special Occasion",
+                    revenue: Math.floor(Math.random() * 15000 + 25000),
                   },
                   {
-                    channel: "Referral",
-                    cost: Math.floor(Math.random() * 100 + 200),
-                  },
-                  {
-                    channel: "Partner",
-                    cost: Math.floor(Math.random() * 250 + 400),
+                    package: "Group Experience",
+                    revenue: Math.floor(Math.random() * 18000 + 28000),
                   },
                 ]}
               >
-                <XAxis dataKey="channel" />
+                <XAxis dataKey="package" />
                 <YAxis />
                 <Tooltip />
                 <Bar
-                  dataKey="cost"
-                  name="Acquisition Cost (₱)"
+                  dataKey="revenue"
+                  name="Revenue (₱)"
                   fill="#1e88e5"
                 />
               </BarChart>
@@ -1596,30 +1562,30 @@ const Dashboard = () => {
 
         <div className="bg-white p-4 rounded-xl shadow">
           <h3 className="font-semibold mb-2 text-blue-800">
-            📊 Marketing ROI Trend
+            📊 Experience Satisfaction Ratings
           </h3>
           <ResponsiveContainer width="100%" height={250}>
-            <LineChart
+            <BarChart
               data={[
-                { month: "Jan", roi: Math.floor(Math.random() * 50 + 150) },
-                { month: "Feb", roi: Math.floor(Math.random() * 60 + 160) },
-                { month: "Mar", roi: Math.floor(Math.random() * 70 + 170) },
-                { month: "Apr", roi: Math.floor(Math.random() * 65 + 165) },
-                { month: "May", roi: Math.floor(Math.random() * 75 + 175) },
-                { month: "Jun", roi: Math.floor(Math.random() * 80 + 180) },
+                { experience: "Camping", rating: 4.7 },
+                { experience: "Stargazing", rating: 4.8 },
+                { experience: "Picnics", rating: 4.5 },
+                { experience: "SunsetDate", rating: 4.9 },
+                { experience: "UnderWater Dining", rating: 4.8 },
+                { experience: "Mystery Hunt", rating: 4.6 },
+                { experience: "Retro", rating: 4.5 },
+                { experience: "Coordinated", rating: 4.7 },
               ]}
             >
-              <XAxis dataKey="month" />
-              <YAxis />
+              <XAxis dataKey="experience" />
+              <YAxis domain={[0, 5]} />
               <Tooltip />
-              <Line
-                type="monotone"
-                dataKey="roi"
-                name="ROI (%)"
-                stroke="#1565c0"
-                strokeWidth={2}
+              <Bar
+                dataKey="rating"
+                name="Average Rating"
+                fill="#1565c0"
               />
-            </LineChart>
+            </BarChart>
           </ResponsiveContainer>
         </div>
       </>
