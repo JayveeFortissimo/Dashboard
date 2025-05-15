@@ -420,7 +420,7 @@ const Dashboard = () => {
       }))
       .slice(0, 9); // Keep only first 9 upcoming bookings
 
-    // If we have less than 9 upcoming bookings, add some default ones
+ 
     const defaultUpcoming = [
       {
         id: 1,
@@ -672,7 +672,7 @@ const Dashboard = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           <div className="bg-white p-4 rounded-xl shadow border-l-4 border-blue-500">
             <div className="flex justify-between items-center">
-              <p className="text-sm text-gray-500">Experiences</p>
+              <p className="text-sm text-gray-500">Booking Experiences</p>
               <Calendar className="h-5 w-5 text-blue-500" />
             </div>
             <h2 className="text-2xl font-bold text-blue-700">
