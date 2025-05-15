@@ -841,7 +841,7 @@ const Dashboard = () => {
   useEffect(() => {
     generateData();
     const interval = setInterval(() => {
-      toast.success("📩 Message:fake message");
+      toast.success("📩 Message");
       generateData();
     }, 10000);
     return () => clearInterval(interval);
