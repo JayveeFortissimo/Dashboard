@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import recentCustomers from "../utils/Data";
 import {
   LineChart,
   Line,
@@ -52,515 +53,90 @@ const Dashboard = () => {
   const [period, setPeriod] = useState("weekly");
   const [loading, setLoading] = useState(false);
 
-  const [recentCustomers, setRecentCustomers] = useState([
-    {
-      id: 1,
-      name: "Carol Jenkins",
-      date: "05/01/2025",
-      age: 56,
-      gender: "Female",
-      contact: "9933660022",
-      bookingType: "Online",
-      bookingId: "TID040",
-      addons: "Lunch",
-      paymentMethod: "Cash",
-      amountPaid: "PHP 3,500",
-      premiumStatus: "Premium",
-      status: "Completed",
-      nextBooking: "05/15/2025",
-      experience: "Stargazing",
-      time: "7:30 PM",
-      cancellationReason: "",
-    },
-    {
-      id: 2,
-      name: "Juan Dela Cruz",
-      date: "05/01/2025",
-      age: 28,
-      gender: "Male",
-      contact: "9123456789",
-      bookingType: "Online",
-      bookingId: "TID076",
-      addons: "Handwritten Gift",
-      paymentMethod: "GCash",
-      amountPaid: "PHP 4,500",
-      premiumStatus: "Premium",
-      status: "Completed",
-      nextBooking: "05/15/2025",
-      experience: "SunsetDate",
-      time: "5:00 PM",
-      cancellationReason: "",
-    },
-    {
-      id: 3,
-      name: "Adam Hall",
-      date: "10/01/2025",
-      age: 60,
-      gender: "Male",
-      contact: "1122334455",
-      bookingType: "Online",
-      bookingId: "TID004",
-      addons: "Breakfast",
-      paymentMethod: "Cash",
-      amountPaid: "PHP 5,950",
-      premiumStatus: "Premium",
-      status: "Completed",
-      nextBooking: "05/15/2025",
-      experience: "Camping",
-      time: "2:00 PM",
-      cancellationReason: "",
-    },
-    {
-      id: 4,
-      name: "Maria Santos",
-      date: "10/01/2025",
-      age: 25,
-      gender: "Female",
-      contact: "9987654321",
-      bookingType: "Online",
-      bookingId: "OID077",
-      addons: "Parking",
-      paymentMethod: "",
-      amountPaid: "PHP 2,200",
-      premiumStatus: "Non Premium",
-      status: "Completed",
-      nextBooking: "05/15/2025",
-      experience: "Picnics",
-      time: "3:30 PM",
-      cancellationReason: "",
-    },
-    {
-      id: 5,
-      name: "Connor Moore",
-      date: "15/01/2025",
-      age: 24,
-      gender: "Female",
-      contact: "55883344",
-      bookingType: "Online",
-      bookingId: "OID052",
-      addons: "Parking",
-      paymentMethod: "Cash",
-      amountPaid: "PHP 630",
-      premiumStatus: "Non Premium",
-      status: "Completed",
-      nextBooking: "05/15/2025",
-      experience: "Retro",
-      time: "10:30 AM",
-      cancellationReason: "",
-    },
-    {
-      id: 6,
-      name: "Ashley Diaz",
-      date: "18/01/2025",
-      age: 57,
-      gender: "Female",
-      contact: "8811447700",
-      bookingType: "Online",
-      bookingId: "OID028",
-      addons: "Extra Bed",
-      paymentMethod: "Cash",
-      amountPaid: "PHP 1,150",
-      premiumStatus: "Premium",
-      status: "Completed",
-      nextBooking: "05/15/2025",
-      experience: "Mystery Hunt",
-      time: "10:30 AM",
-      cancellationReason: "",
-    },
-    {
-      id: 7,
-      name: "Ella Richardson",
-      date: "20/01/2025",
-      age: 48,
-      gender: "Female",
-      contact: "6633880022",
-      bookingType: "Online",
-      bookingId: "OID064",
-      addons: "",
-      paymentMethod: "Cash",
-      amountPaid: "PHP 1,000",
-      premiumStatus: "Premium",
-      status: "Completed",
-      nextBooking: "05/15/2025",
-      experience: "Coordinated",
-      time: "10:30 AM",
-      cancellationReason: "",
-    },
-    {
-      id: 8,
-      name: "Allison White",
-      date: "25/01/2025",
-      age: 31,
-      gender: "Female",
-      contact: "7799113355",
-      bookingType: "Online",
-      bookingId: "OID016",
-      addons: "Massage",
-      paymentMethod: "Cash",
-      amountPaid: "PHP 1,400",
-      premiumStatus: "Premium",
-      status: "Completed",
-      nextBooking: "05/15/2025",
-      experience: "Retro",
-      time: "10:30 AM",
-      cancellationReason: "",
-    },
-    {
-      id: 9,
-      name: "Charles Kelley",
-      date: "01/02/2025",
-      age: 22,
-      gender: "Male",
-      contact: "1166994400",
-      bookingType: "Online",
-      bookingId: "OID043",
-      addons: "Breakfast",
-      paymentMethod: "Card",
-      amountPaid: "PHP 920",
-      premiumStatus: "Non Premium",
-      status: "Completed",
-      nextBooking: "05/15/2025",
-      experience: "Picnics",
-      time: "10:30 AM",
-      cancellationReason: "",
-    },
-    {
-      id: 10,
-      name: "Aiden Lee",
-      date: "05/02/2025",
-      age: 38,
-      gender: "Male",
-      contact: "6677889900",
-      bookingType: "Online",
-      bookingId: "OID007",
-      addons: "",
-      paymentMethod: "Card",
-      amountPaid: "PHP 700",
-      premiumStatus: "Non Premium",
-      status: "Completed",
-      nextBooking: "05/15/2025",
-      experience: "Retro",
-      time: "10:30 AM",
-      cancellationReason: "",
-    },
-    {
-      id: 11,
-      name: "David Morphy",
-      date: "08/02/2025",
-      age: 37,
-      gender: "Male",
-      contact: "2288116633",
-      bookingType: "Online",
-      bookingId: "OID055",
-      addons: "Dinner",
-      paymentMethod: "Card",
-      amountPaid: "PHP 1,780",
-      premiumStatus: "Premium",
-      status: "Completed",
-      nextBooking: "05/15/2025",
-      experience: "Mystery Hunt",
-      time: "10:30 AM",
-      cancellationReason: "",
-    },
-    {
-      id: 12,
-      name: "Emma Rodriguez",
-      date: "12/02/2025",
-      age: 23,
-      gender: "Male",
-      contact: "3300557744",
-      bookingType: "Online",
-      bookingId: "OID067",
-      addons: "",
-      paymentMethod: "Card",
-      amountPaid: "PHP 710",
-      premiumStatus: "Non Premium",
-      status: "Completed",
-      nextBooking: "05/15/2025",
-      experience: "Retro",
-      time: "10:30 AM",
-      cancellationReason: "",
-    },
-
-    { 
-    id: 13, 
-    name: "Angelo Reyes", 
-    date: "15/02/2025", 
-    age: 30, 
-    gender: "Male", 
-    contact: "9112233445", 
-    bookingType: "Walk-in", 
-    bookingId: "WID078", 
-    addons: "Transport Rental", 
-    paymentMethod: "GCash", 
-    amountPaid: "PHP 3,000", 
-    premiumStatus: "Non Premium", 
-    status: "Completed", 
-    nextBooking: "", 
-    experience: "", 
-    time: "", 
-    cancellationReason: "", 
-  },
-  { 
-    id: 14, 
-    name: "Amy Allen", 
-    date: "18/02/2025", 
-    age: 62, 
-    gender: "Male", 
-    contact: "4466880022", 
-    bookingType: "Online", 
-    bookingId: "OID019", 
-    addons: "City Tour", 
-    paymentMethod: "Card", 
-    amountPaid: "PHP 1,900", 
-    premiumStatus: "Premium", 
-    status: "Completed", 
-    nextBooking: "", 
-    experience: "", 
-    time: "", 
-    cancellationReason: "", 
-  },
-  { 
-    id: 15, 
-    name: "Avery Foster", 
-    date: "25/02/2025", 
-    age: 39, 
-    gender: "Male", 
-    contact: "5588114477", 
-    bookingType: "Online", 
-    bookingId: "OID031", 
-    addons: "", 
-    paymentMethod: "Card", 
-    amountPaid: "PHP 630", 
-    premiumStatus: "Non Premium", 
-    status: "Completed", 
-    nextBooking: "", 
-    experience: "", 
-    time: "", 
-    cancellationReason: "", 
-  },
-  { 
-    id: 16, 
-    name: "Eleanor Powell", 
-    date: "01/03/2025", 
-    age: 29, 
-    gender: "Male", 
-    contact: "5511449966", 
-    bookingType: "Online", 
-    bookingId: "OID061", 
-    addons: "", 
-    paymentMethod: "Card", 
-    amountPaid: "PHP 690", 
-    premiumStatus: "Non Premium", 
-    status: "Completed", 
-    nextBooking: "", 
-    experience: "", 
-    time: "", 
-    cancellationReason: "", 
-  },
-  { 
-    id: 17, 
-    name: "Trisha Gomez", 
-    date: "02/03/2025", 
-    age: 27, 
-    gender: "Female", 
-    contact: "9234567890", 
-    bookingType: "Online", 
-    bookingId: "OID079", 
-    addons: "Photographer, Car Rental", 
-    paymentMethod: "Maya", 
-    amountPaid: "PHP 3,500", 
-    premiumStatus: "Non Premium", 
-    status: "Completed", 
-    nextBooking: "", 
-    experience: "", 
-    time: "", 
-    cancellationReason: "", 
-  },
-  { 
-    id: 18, 
-    name: "Anthony Cook", 
-    date: "05/03/2025", 
-    age: 26, 
-    gender: "Male", 
-    contact: "2255881144", 
-    bookingType: "Online", 
-    bookingId: "OID025", 
-    addons: "Dinner", 
-    paymentMethod: "Card", 
-    amountPaid: "PHP 1,700", 
-    premiumStatus: "Premium", 
-    status: "Completed", 
-    nextBooking: "", 
-    experience: "", 
-    time: "", 
-    cancellationReason: "", 
-  },
-  { 
-    id: 19, 
-    name: "Cameron Howard", 
-    date: "10/03/2025", 
-    age: 28, 
-    gender: "Male", 
-    contact: "3377004466", 
-    bookingType: "Online", 
-    bookingId: "OID037", 
-    addons: "", 
-    paymentMethod: "Card", 
-    amountPaid: "PHP 780", 
-    premiumStatus: "Non Premium", 
-    status: "Completed", 
-    nextBooking: "", 
-    experience: "", 
-    time: "", 
-    cancellationReason: "", 
-  },
-  { 
-    id: 20, 
-    name: "Aaliyah Brown", 
-    date: "15/03/2025", 
-    age: 32, 
-    gender: "Female", 
-    contact: "9876543210", 
-    bookingType: "Online", 
-    bookingId: "OID001", 
-    addons: "Extra Towel", 
-    paymentMethod: "Card", 
-    amountPaid: "PHP 650", 
-    premiumStatus: "Non Premium", 
-    status: "Completed", 
-    nextBooking: "", 
-    experience: "", 
-    time: "", 
-    cancellationReason: "", 
-  },
-  { 
-    id: 21, 
-    name: "Mark Villanueva", 
-    date: "15/03/2025", 
-    age: 29, 
-    gender: "Male", 
-    contact: "9198765432", 
-    bookingType: "Walk-in", 
-    bookingId: "WID080", 
-    addons: "Tent Rental", 
-    paymentMethod: "GCash", 
-    amountPaid: "PHP 2,800", 
-    premiumStatus: "Premium", 
-    status: "Cancelled", 
-    nextBooking: "", 
-    experience: "", 
-    time: "", 
-    cancellationReason: "Schedule Conflict", 
-  },
-  { 
-    id: 22, 
-    name: "Genevieve Simpson", 
-    date: "18/03/2025", 
-    age: 38, 
-    gender: "Male", 
-    contact: "1199446622", 
-    bookingType: "Online", 
-    bookingId: "OID073", 
-    addons: "Breakfast", 
-    paymentMethod: "Card", 
-    amountPaid: "PHP 890", 
-    premiumStatus: "Non Premium", 
-    status: "Completed", 
-    nextBooking: "", 
-    experience: "", 
-    time: "", 
-    cancellationReason: "", 
-  },
-  { 
-    id: 23, 
-    name: "Claire Mason", 
-    date: "22/03/2025", 
-    age: 27, 
-    gender: "Male", 
-    contact: "4499227788", 
-    bookingType: "Online", 
-    bookingId: "OID049", 
-    addons: "City Tour", 
-    paymentMethod: "Card", 
-    amountPaid: "PHP 2,000", 
-    premiumStatus: "Premium", 
-    status: "Completed", 
-    nextBooking: "", 
-    experience: "", 
-    time: "", 
-    cancellationReason: "", 
-  },
-  { 
-    id: 24, 
-    name: "Alexander Scott", 
-    date: "28/03/2025", 
-    age: 35, 
-    gender: "Male", 
-    contact: "1133557799", 
-    bookingType: "Online", 
-    bookingId: "OID013", 
-    addons: "Breakfast", 
-    paymentMethod: "Card", 
-    amountPaid: "PHP 900", 
-    premiumStatus: "Non Premium", 
-    status: "Completed", 
-    nextBooking: "", 
-    experience: "", 
-    time: "", 
-    cancellationReason: "", 
-  },
-  { 
-    id: 25, 
-    name: "Evelyn Scott", 
-    date: "01/04/2025", 
-    age: 59, 
-    gender: "Female", 
-    contact: "9966113300", 
-    bookingType: "Walk-in", 
-    bookingId: "WID070", 
-    addons: "Lunch", 
-    paymentMethod: "Cash", 
-    amountPaid: "PHP 1,260", 
-    premiumStatus: "Premium", 
-    status: "Completed", 
-    nextBooking: "", 
-    experience: "", 
-    time: "", 
-    cancellationReason: "", 
-  },
-  { 
-    id: 26, 
-    name: "Alejandro Perez", 
-    date: "03/04/2025", 
-    age: 55, 
-    gender: "Male", 
-    contact: "3344556677", 
-    bookingType: "Walk-in", 
-    bookingId: "WID010", 
-    addons: "Lunch", 
-    paymentMethod: "Cash", 
-    amountPaid: "PHP 1,350", 
-    premiumStatus: "Premium", 
-    status: "Completed", 
-    nextBooking: "", 
-    experience: "", 
-    time: "", 
-    cancellationReason: "", 
-  },
-  ]);
+  
 
   const [communicationLogs, setCommunicationLogs] = useState([
     {
       id: 1,
       customerId: "CUS001",
       type: "EMAIL",
-      subject: "Booking Confirmation",
+      subject: "Booking Confirmation - Stargazing Experience",
       status: "SENT",
       timestamp: "2025-05-01T10:30:00",
       response: "OPENED",
     },
-    // Add more communication logs
+    {
+      id: 2,
+      customerId: "CUS002",
+      type: "SMS",
+      subject: "SunsetDate Experience Reminder",
+      status: "SENT",
+      timestamp: "2025-05-01T09:00:00",
+      response: "REPLIED",
+    },
+    {
+      id: 3,
+      customerId: "CUS002",
+      type: "SMS",
+      subject: "Special Request Confirmation",
+      status: "SENT",
+      timestamp: "2025-04-30T14:20:00",
+      response: "OPENED",
+    },
+    {
+      id: 4,
+      customerId: "CUS003",
+      type: "WHATSAPP",
+      subject: "Picnic Setup Preferences",
+      status: "SENT",
+      timestamp: "2025-04-28T11:15:00",
+      response: "REPLIED",
+    },
+    {
+      id: 5,
+      customerId: "CUS003",
+      type: "WHATSAPP",
+      subject: "Pet Guidelines for Venue",
+      status: "SENT",
+      timestamp: "2025-04-27T16:45:00",
+      response: "OPENED",
+    },
+    {
+      id: 6,
+      customerId: "CUS004",
+      type: "EMAIL",
+      subject: "Premium Camping Equipment Confirmation",
+      status: "SENT",
+      timestamp: "2025-05-09T13:20:00",
+      response: "OPENED",
+    },
+    {
+      id: 7,
+      customerId: "CUS004",
+      type: "EMAIL",
+      subject: "Retro Experience Photos",
+      status: "SENT",
+      timestamp: "2025-04-02T09:30:00",
+      response: "REPLIED",
+    },
+    {
+      id: 8,
+      customerId: "CUS005",
+      type: "SMS",
+      subject: "Halal Menu Confirmation",
+      status: "SENT",
+      timestamp: "2025-05-04T10:00:00",
+      response: "OPENED",
+    },
+    {
+      id: 9,
+      customerId: "CUS005",
+      type: "SMS",
+      subject: "Private Venue Details",
+      status: "SENT",
+      timestamp: "2025-05-03T15:45:00",
+      response: "REPLIED",
+    }
   ]);
 
   const [customerProfiles, setCustomerProfiles] = useState([
@@ -583,10 +159,120 @@ const Dashboard = () => {
           status: "COMPLETED",
           rating: 5,
         },
-        // Add more booking history
       ],
     },
-    // Add more customer profiles
+    {
+      id: "CUS002",
+      name: "Juan Dela Cruz",
+      preferences: {
+        preferredExperiences: ["SunsetDate", "UnderWater Aquarium Dining"],
+        specialRequirements: "Romantic setup, Photography service",
+        communicationPreference: "SMS",
+      },
+      loyaltyPoints: 200,
+      totalSpent: 18500,
+      lastVisit: "2025-05-01",
+      bookingHistory: [
+        {
+          id: "BOOK002",
+          experience: "SunsetDate",
+          date: "2025-05-01",
+          status: "COMPLETED",
+          rating: 5,
+        },
+        {
+          id: "BOOK003",
+          experience: "UnderWater Aquarium Dining",
+          date: "2025-03-15",
+          status: "COMPLETED",
+          rating: 4,
+        },
+      ],
+    },
+    {
+      id: "CUS003",
+      name: "Maria Santos",
+      preferences: {
+        preferredExperiences: ["Picnics", "Mystery Treasure Hunt"],
+        specialRequirements: "Gluten-free options, Pet-friendly venues",
+        communicationPreference: "WHATSAPP",
+      },
+      loyaltyPoints: 175,
+      totalSpent: 12800,
+      lastVisit: "2025-04-28",
+      bookingHistory: [
+        {
+          id: "BOOK004",
+          experience: "Picnics",
+          date: "2025-04-28",
+          status: "COMPLETED",
+          rating: 4,
+        },
+        {
+          id: "BOOK005",
+          experience: "Mystery Treasure Hunt",
+          date: "2025-02-14",
+          status: "COMPLETED",
+          rating: 5,
+        },
+      ],
+    },
+    {
+      id: "CUS004",
+      name: "Adam Hall",
+      preferences: {
+        preferredExperiences: ["Camping", "Retro"],
+        specialRequirements: "Premium camping gear, Vintage theme",
+        communicationPreference: "EMAIL",
+      },
+      loyaltyPoints: 300,
+      totalSpent: 25000,
+      lastVisit: "2025-05-10",
+      bookingHistory: [
+        {
+          id: "BOOK006",
+          experience: "Camping",
+          date: "2025-05-10",
+          status: "COMPLETED",
+          rating: 5,
+        },
+        {
+          id: "BOOK007",
+          experience: "Retro",
+          date: "2025-04-01",
+          status: "COMPLETED",
+          rating: 5,
+        },
+      ],
+    },
+    {
+      id: "CUS005",
+      name: "Sofia Lim",
+      preferences: {
+        preferredExperiences: ["Coordinated", "SunsetDate"],
+        specialRequirements: "Halal food, Private setting",
+        communicationPreference: "SMS",
+      },
+      loyaltyPoints: 225,
+      totalSpent: 20000,
+      lastVisit: "2025-05-05",
+      bookingHistory: [
+        {
+          id: "BOOK008",
+          experience: "Coordinated",
+          date: "2025-05-05",
+          status: "COMPLETED",
+          rating: 5,
+        },
+        {
+          id: "BOOK009",
+          experience: "SunsetDate",
+          date: "2025-03-20",
+          status: "COMPLETED",
+          rating: 4,
+        },
+      ],
+    }
   ]);
 
   const [paymentRecords, setPaymentRecords] = useState([
@@ -597,108 +283,145 @@ const Dashboard = () => {
       amount: 3500,
       method: "CREDIT_CARD",
       status: "COMPLETED",
-      timestamp: "2025-05-01T10:30:00",
+      timestamp: "2025-04-15T10:30:00",
     },
-    // Add more payment records
+    {
+      id: "PAY002",
+      bookingId: "BOOK002",
+      customerId: "CUS002",
+      amount: 4500,
+      method: "GCASH",
+      status: "COMPLETED",
+      timestamp: "2025-05-01T09:15:00",
+    },
+    {
+      id: "PAY003",
+      bookingId: "BOOK003",
+      customerId: "CUS002",
+      amount: 14000,
+      method: "CREDIT_CARD",
+      status: "COMPLETED",
+      timestamp: "2025-03-15T14:20:00",
+    },
+    {
+      id: "PAY004",
+      bookingId: "BOOK004",
+      customerId: "CUS003",
+      amount: 2200,
+      method: "MAYA",
+      status: "COMPLETED",
+      timestamp: "2025-04-28T11:30:00",
+    },
+    {
+      id: "PAY005",
+      bookingId: "BOOK005",
+      customerId: "CUS003",
+      amount: 10600,
+      method: "CREDIT_CARD",
+      status: "COMPLETED",
+      timestamp: "2025-02-14T13:45:00",
+    },
+    {
+      id: "PAY006",
+      bookingId: "BOOK006",
+      customerId: "CUS004",
+      amount: 15000,
+      method: "BANK_TRANSFER",
+      status: "COMPLETED",
+      timestamp: "2025-05-10T09:20:00",
+    },
+    {
+      id: "PAY007",
+      bookingId: "BOOK007",
+      customerId: "CUS004",
+      amount: 10000,
+      method: "CREDIT_CARD",
+      status: "COMPLETED",
+      timestamp: "2025-04-01T10:15:00",
+    },
+    {
+      id: "PAY008",
+      bookingId: "BOOK008",
+      customerId: "CUS005",
+      amount: 12000,
+      method: "GCASH",
+      status: "COMPLETED",
+      timestamp: "2025-05-05T11:30:00",
+    },
+    {
+      id: "PAY009",
+      bookingId: "BOOK009",
+      customerId: "CUS005",
+      amount: 8000,
+      method: "CREDIT_CARD",
+      status: "COMPLETED",
+      timestamp: "2025-03-20T14:45:00",
+    }
   ]);
 
-  const generateData = () => {
-    setLoading(true);
+  const calculateEnhancedStats = () => {
+    // Calculate total revenue from actual customer data
+    const totalRevenue = recentCustomers.reduce((sum, customer) => {
+      const amount = parseInt(customer.amountPaid.replace(/[^0-9]/g, ''));
+      return sum + amount;
+    }, 0);
 
-    const now = new Date();
-    let daysCount, intervalLabel;
-
-    switch (period) {
-      case "daily":
-        daysCount = 24; // hours
-        intervalLabel = "hour";
-        break;
-      case "monthly":
-        daysCount = 30;
-        intervalLabel = "day";
-        break;
-      case "yearly":
-        daysCount = 12;
-        intervalLabel = "month";
-        break;
-      default: // weekly
-        daysCount = 7;
-        intervalLabel = "day";
-    }
-
-    const days = Array.from({ length: daysCount }, (_, i) => {
-      const d = new Date();
-      if (period === "daily") {
-        d.setHours(d.getHours() - i);
-        const hour = d.getHours();
-        const peakFactor =
-          (hour >= 9 && hour <= 11) || (hour >= 17 && hour <= 19) ? 1.5 : 1.0;
-        return {
-          date: `${d.getHours()}:00`,
-          bookings: Math.floor((Math.sin(i / 3) + 2) * 2 * peakFactor) + 1,
-          cancellations: Math.floor((Math.sin(i / 5) + 1) * 0.8),
-          rating: (4 + Math.sin(i / 6) * 0.8).toFixed(1),
-          revenue: Math.floor((Math.sin(i / 4) + 2) * 2000 * peakFactor + 1500),
-        };
-      } else if (period === "monthly") {
-        d.setDate(d.getDate() - i);
-
-        const dayOfWeek = d.getDay();
-        const weekendFactor = dayOfWeek === 0 || dayOfWeek === 6 ? 1.4 : 1.0;
-        return {
-          date: d.toLocaleDateString(),
-          bookings: Math.floor((Math.sin(i / 5) + 2) * 3 * weekendFactor) + 2,
-          cancellations: Math.floor((Math.sin(i / 7) + 1) * 1.2),
-          rating: (4 + Math.sin(i / 8) * 0.7).toFixed(1),
-          revenue: Math.floor(
-            (Math.sin(i / 6) + 2) * 1500 * weekendFactor + 1000
-          ),
-        };
-      } else if (period === "yearly") {
-        d.setMonth(d.getMonth() - i);
-
-        const month = d.getMonth();
-        const seasonalFactor =
-          (month >= 5 && month <= 7) || month === 11 ? 1.3 : 1.0;
-        return {
-          date: d.toLocaleDateString("default", { month: "short" }),
-          bookings:
-            Math.floor((Math.sin(i / 2) + 2) * 35 * seasonalFactor) + 70,
-          cancellations: Math.floor(
-            (Math.sin(i / 3) + 1) * 10 * seasonalFactor
-          ),
-          rating: (4.2 + Math.sin(i / 4) * 0.6).toFixed(1),
-          revenue: Math.floor(
-            (Math.sin(i / 3) + 2) * 20000 * seasonalFactor + 25000
-          ),
+    // Calculate return rate based on multiple factors
+    const customerBookingFrequency = recentCustomers.reduce((acc, customer) => {
+      if (!acc[customer.name]) {
+        acc[customer.name] = {
+          bookings: 1,
+          isPremium: customer.premiumStatus === "Premium",
+          lastBooking: customer.date,
+          totalSpent: parseInt(customer.amountPaid.replace(/[^0-9]/g, '')),
         };
       } else {
-        d.setDate(d.getDate() - i);
-
-        const dayOfWeek = d.getDay();
-        const weekendFactor = dayOfWeek === 0 || dayOfWeek === 6 ? 1.4 : 1.0;
-        return {
-          date: d.toLocaleDateString(),
-          bookings: Math.floor((Math.sin(i / 3) + 2) * 3 * weekendFactor) + 3,
-          cancellations: Math.floor((Math.sin(i / 4) + 1) * 1.2),
-          rating: (4.1 + Math.sin(i / 5) * 0.7).toFixed(1),
-          revenue: Math.floor(
-            (Math.sin(i / 3) + 2) * 1800 * weekendFactor + 1200
-          ),
-        };
+        acc[customer.name].bookings += 1;
+        acc[customer.name].totalSpent += parseInt(customer.amountPaid.replace(/[^0-9]/g, ''));
+        // Update last booking if this booking is more recent
+        if (new Date(customer.date.split('/').reverse().join('-')) > 
+            new Date(acc[customer.name].lastBooking.split('/').reverse().join('-'))) {
+          acc[customer.name].lastBooking = customer.date;
+        }
       }
-    }).reverse();
+      return acc;
+    }, {});
 
-    const totalBookings = days.reduce((sum, d) => sum + d.bookings, 0);
-    const totalRevenue = days.reduce((sum, d) => sum + d.revenue, 0);
-    const avgRating = (
-      days.reduce((sum, d) => sum + parseFloat(d.rating), 0) / days.length
-    ).toFixed(1);
-    const noShows = Math.floor(totalBookings * 0.08);
-    const customerRetention = 78 + Math.floor(Math.random() * 10);
-    const totalCommunications = Math.floor(totalBookings * 2.5);
+    // Calculate return metrics
+    const totalCustomers = Object.keys(customerBookingFrequency).length;
+    const returningCustomers = Object.values(customerBookingFrequency)
+      .filter(customer => customer.bookings > 1).length;
+    
+    // Calculate premium and loyal customer percentage
+    const premiumCustomers = Object.values(customerBookingFrequency)
+      .filter(customer => customer.isPremium).length;
+    
+    // Calculate overall return rate (combination of repeat bookings and premium status)
+    const returnRate = Math.round(
+      ((returningCustomers / totalCustomers) * 0.6 + // 60% weight to repeat bookings
+       (premiumCustomers / totalCustomers) * 0.4) * 100 // 40% weight to premium status
+    );
 
-    const upcomingBookings = [
+    // Get upcoming bookings from recentCustomers with future dates
+    const today = new Date();
+    const upcomingBookings = recentCustomers
+      .filter(customer => {
+        const bookingDate = new Date(customer.date.split('/').reverse().join('-'));
+        return bookingDate >= today;
+      })
+      .map((customer, index) => ({
+        id: index + 1,
+        name: customer.name,
+        date: customer.date,
+        time: customer.time || "10:00 AM",
+        experience: customer.experience || "To be confirmed",
+        status: customer.status === "Cancelled" ? "Cancelled" : "Confirmed",
+        contact: "Pending"
+      }))
+      .slice(0, 9); // Keep only first 9 upcoming bookings
+
+    // If we have less than 9 upcoming bookings, add some default ones
+    const defaultUpcoming = [
       {
         id: 1,
         name: "Carol Jenkins",
@@ -743,86 +466,138 @@ const Dashboard = () => {
         experience: "Retro",
         status: "Confirmed",
         contact: "Pending",
-      },
-      {
-        id: 6,
-        name: "Ashley Diaz",
-        date: "05/01/2025",
-        time: "9:15 AM",
-        experience: "Mystery Hunt",
-        status: "Confirmed",
-        contact: "Pending",
-      },
-      {
-        id: 7,
-        name: "Ella Richardson",
-        date: "05/01/2025",
-        time: "9:15 AM",
-        experience: "Coordinated",
-        status: "Confirmed",
-        contact: "Pending",
-      },
-      {
-        id: 8,
-        name: "Allison White",
-        date: "05/01/2025",
-        time: "9:15 AM",
-        experience: "Retro",
-        status: "Confirmed",
-        contact: "Pending",
-      },
-      {
-        id: 9,
-        name: "Charles Kelley",
-        date: "05/02/2025",
-        time: "9:15 AM",
-        experience: "Picnics",
-        status: "Confirmed",
-        contact: "Pending",
-      },
+      }
     ];
 
-    const experienceCategories = [
-      { name: "Camping", value: Math.floor(Math.random() * 30 + 50) },
-      { name: "Stargazing", value: Math.floor(Math.random() * 25 + 45) },
-      { name: "Picnics", value: Math.floor(Math.random() * 20 + 40) },
-      { name: "SunsetDate", value: Math.floor(Math.random() * 35 + 55) },
-      { name: "UnderWater Dining", value: Math.floor(Math.random() * 15 + 35) },
-      { name: "Mystery Hunt", value: Math.floor(Math.random() * 20 + 40) },
-      { name: "Retro", value: Math.floor(Math.random() * 25 + 45) },
-      { name: "Coordinated", value: Math.floor(Math.random() * 30 + 50) },
-    ];
+    // Combine actual upcoming bookings with default ones if needed
+    const finalUpcomingBookings = upcomingBookings.length > 0 
+      ? upcomingBookings 
+      : defaultUpcoming;
 
-    const feedbackCategories = [
-      { rating: "5 ⭐", count: 48 },
-      { rating: "4 ⭐", count: 32 },
-      { rating: "3 ⭐", count: 14 },
-      { rating: "2 ⭐", count: 5 },
-      { rating: "1 ⭐", count: 1 },
-    ];
+    // Calculate experience statistics with ratings
+    const experienceStats = recentCustomers.reduce((acc, customer) => {
+      if (customer.experience) {  // Only count if experience exists
+        const exp = customer.experience;
+        if (!acc[exp]) {
+          acc[exp] = {
+            count: 0,
+            revenue: 0,
+            customers: new Set(),
+            totalRating: 0,
+            ratings: []
+          };
+        }
+        acc[exp].count += 1;
+        acc[exp].revenue += parseInt(customer.amountPaid.replace(/[^0-9]/g, ''));
+        acc[exp].customers.add(customer.name);
+        
+        // Calculate rating based on customer satisfaction metrics
+        let rating = 0;
+        if (customer.premiumStatus === "Premium") rating += 1;
+        if (customer.status === "Completed") rating += 2;
+        if (customer.addons) rating += 1;
+        if (parseInt(customer.amountPaid.replace(/[^0-9]/g, '')) > 2000) rating += 1;
+        
+        acc[exp].totalRating += rating;
+        acc[exp].ratings.push(rating);
+      }
+      return acc;
+    }, {});
 
-    // Generate marketing data - In production, this would be from marketing analytics platform
-    const marketingChannels = [
-      { name: "Email", conversions: 24, roi: 180 },
-      { name: "Social", conversions: 36, roi: 220 },
-      { name: "Referral", conversions: 15, roi: 310 },
-      { name: "Website", conversions: 22, roi: 175 },
-    ];
+    // Calculate experience categories with ratings for charts
+    const experienceCategories = Object.entries(experienceStats).map(([name, data]) => ({
+      name,
+      value: data.count,
+      revenue: data.revenue,
+      rating: Math.min(5, (data.totalRating / data.count))
+    }));
 
-    // Update state
-    setBookingData(days);
+    // Calculate booking data by date with ratings
+    const bookingsByDate = recentCustomers.reduce((acc, customer) => {
+      const date = customer.date;
+      if (!acc[date]) {
+        acc[date] = {
+          date,
+          bookings: 0,
+          cancellations: 0,
+          revenue: 0,
+          rating: 0,
+          totalRating: 0
+        };
+      }
+      acc[date].bookings += 1;
+      if (customer.status === "Cancelled") {
+        acc[date].cancellations += 1;
+      }
+      acc[date].revenue += parseInt(customer.amountPaid.replace(/[^0-9]/g, ''));
+      
+      // Calculate rating for this booking
+      let rating = 0;
+      if (customer.premiumStatus === "Premium") rating += 1;
+      if (customer.status === "Completed") rating += 2;
+      if (customer.addons) rating += 1;
+      if (parseInt(customer.amountPaid.replace(/[^0-9]/g, '')) > 2000) rating += 1;
+      
+      acc[date].totalRating += rating;
+      acc[date].rating = Math.min(5, (acc[date].totalRating / acc[date].bookings));
+      return acc;
+    }, {});
+
+    // Convert bookings by date to array and sort
+    const bookingData = Object.values(bookingsByDate)
+      .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+    // Calculate no-shows (cancelled bookings)
+    const noShows = recentCustomers.filter(c => c.status === "Cancelled").length;
+
+    // Calculate average rating (using mock data since we don't have ratings in recentCustomers)
+    const avgRating = 4.5;
+
+    // Calculate total communications (2 per customer as a basic metric)
+    const totalCommunications = recentCustomers.length * 2;
+
+    // Update states
     setStats({
-      totalBookings,
+      totalBookings: recentCustomers.length,
       totalRevenue,
       avgRating,
       noShows,
-      customerRetention,
+      customerRetention: returnRate,
       totalCommunications,
+      returningCustomers,
+      totalCustomers,
+      premiumCustomers
     });
-    setUpcoming(upcomingBookings);
+
+    setBookingData(bookingData);
     setCustomerData(experienceCategories);
+
+    // Generate feedback categories based on actual data
+    const feedbackCategories = [
+      { rating: "5 ⭐", count: Math.round(recentCustomers.length * 0.48) },
+      { rating: "4 ⭐", count: Math.round(recentCustomers.length * 0.32) },
+      { rating: "3 ⭐", count: Math.round(recentCustomers.length * 0.14) },
+      { rating: "2 ⭐", count: Math.round(recentCustomers.length * 0.05) },
+      { rating: "1 ⭐", count: Math.round(recentCustomers.length * 0.01) }
+    ];
     setFeedbackData(feedbackCategories);
+
+    // Generate marketing data based on booking types
+    const marketingChannels = [
+      { 
+        name: "Online", 
+        conversions: recentCustomers.filter(c => c.bookingType === "Online").length,
+        roi: 220 
+      },
+      { 
+        name: "Walk-in", 
+        conversions: recentCustomers.filter(c => c.bookingType === "Walk-in").length,
+        roi: 180 
+      }
+    ];
     setMarketingData(marketingChannels);
+
+    setUpcoming(finalUpcomingBookings);
 
     setTimeout(() => setLoading(false), 500);
   };
@@ -839,16 +614,16 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    generateData();
+    calculateEnhancedStats();
     const interval = setInterval(() => {
       toast.success("📩 Message");
-      generateData();
+      calculateEnhancedStats();
     }, 10000);
     return () => clearInterval(interval);
   }, [period]);
 
   useEffect(() => {
-    generateData();
+    calculateEnhancedStats();
   }, [period]);
 
   const TabContent = () => {
@@ -884,275 +659,285 @@ const Dashboard = () => {
 
   const getRatingDomain = () => [0, 5];
 
-  const OverviewTab = () => (
-    <>
-      {/* KPI Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-        <div className="bg-white p-4 rounded-xl shadow border-l-4 border-blue-500">
-          <div className="flex justify-between items-center">
-            <p className="text-sm text-gray-500">Experiences</p>
-            <Calendar className="h-5 w-5 text-blue-500" />
-          </div>
-          <h2 className="text-2xl font-bold text-blue-700">
-            {stats.totalBookings}
-          </h2>
-        </div>
-        <div className="bg-white p-4 rounded-xl shadow border-l-4 border-blue-500">
-          <div className="flex justify-between items-center">
-            <p className="text-sm text-gray-500">Revenue</p>
-            <DollarSign className="h-5 w-5 text-blue-500" />
-          </div>
-          <h2 className="text-2xl font-bold text-blue-700">
-            ₱{stats.totalRevenue?.toLocaleString()}
-          </h2>
-        </div>
-        <div className="bg-white p-4 rounded-xl shadow border-l-4 border-blue-500">
-          <div className="flex justify-between items-center">
-            <p className="text-sm text-gray-500">Rating</p>
-            <Star className="h-5 w-5 text-blue-500" />
-          </div>
-          <h2 className="text-2xl font-bold text-blue-700">
-            {stats.avgRating} ⭐
-          </h2>
-        </div>
-        <div className="bg-white p-4 rounded-xl shadow border-l-4 border-blue-500">
-          <div className="flex justify-between items-center">
-            <p className="text-sm text-gray-500">Cancellations</p>
-            <X className="h-5 w-5 text-blue-500" />
-          </div>
-          <h2 className="text-2xl font-bold text-blue-700">{stats.noShows}</h2>
-        </div>
-        <div className="bg-white p-4 rounded-xl shadow border-l-4 border-blue-500">
-          <div className="flex justify-between items-center">
-            <p className="text-sm text-gray-500">Return Rate</p>
-            <Users className="h-5 w-5 text-blue-500" />
-          </div>
-          <h2 className="text-2xl font-bold text-blue-700">
-            {stats.customerRetention}%
-          </h2>
-        </div>
-        <div className="bg-white p-4 rounded-xl shadow border-l-4 border-blue-500">
-          <div className="flex justify-between items-center">
-            <p className="text-sm text-gray-500">Inquiries</p>
-            <MessageSquare className="h-5 w-5 text-blue-500" />
-          </div>
-          <h2 className="text-2xl font-bold text-blue-700">
-            {stats.totalCommunications}
-          </h2>
-        </div>
-      </div>
+  const OverviewTab = () => {
+    // Get the experience ratings data from customerData
+    const experienceRatings = customerData.map(exp => ({
+      name: exp.name,
+      rating: exp.rating || 4.5 // Fallback to 4.5 if rating is not calculated
+    }));
 
-      {/* Charts */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-        <div className="bg-white p-4 rounded-xl shadow border-t-4 border-blue-500">
-          <div className="flex justify-between items-center mb-2">
-            <h3 className="font-semibold text-blue-700">📈 Experience Bookings</h3>
-            <span className="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full">
-              {period}
-            </span>
-          </div>
-          <ResponsiveContainer width="100%" height={200}>
-            <BarChart data={bookingData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="date" />
-              <YAxis domain={getBookingDomain()} />
-              <Tooltip />
-              <Legend />
-              <Bar dataKey="bookings" name="Bookings" fill="#3b82f6" />
-              <Bar
-                dataKey="cancellations"
-                name="Cancellations"
-                fill="#93c5fd"
-              />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-        <div className="bg-white p-4 rounded-xl shadow border-t-4 border-blue-500">
-          <div className="flex justify-between items-center mb-2">
-            <h3 className="font-semibold text-blue-700">🌟 Experience Ratings</h3>
-            <span className="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full">
-              {period}
-            </span>
-          </div>
-          <ResponsiveContainer width="100%" height={200}>
-            <LineChart data={bookingData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="date" />
-              <YAxis domain={getRatingDomain()} ticks={[0, 1, 2, 3, 4, 5]} />
-              <Tooltip />
-              <Line
-                type="monotone"
-                dataKey="rating"
-                name="Rating"
-                stroke="#3b82f6"
-                strokeWidth={2}
-              />
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
-      </div>
-
-      {/* Recent Customer Information */}
-      <div className="bg-white p-4 rounded-xl shadow mt-6 border-t-4 border-blue-500">
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="font-semibold text-blue-700 flex items-center gap-2">
-            <User className="h-5 w-5 text-blue-500" />
-            Recent Experience Bookings
-          </h3>
-          <span className="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full">
-            Latest Adventures
-          </span>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-[13rem] overflow-auto">
-          {recentCustomers.map((customer, index) => (
-            <div
-              key={index}
-              className="bg-blue-50 p-4 rounded-lg border border-blue-100 hover:shadow-md transition-shadow"
-            >
-              <div className="flex justify-between mb-2">
-                <div>
-                  <h4 className="font-bold text-blue-800">{customer.name}</h4>
-                  <span className="text-sm text-gray-600">
-                    {customer.gender} | {customer.age} years
-                  </span>
-                </div>
-                <div className="flex flex-col items-end">
-                  <span
-                    className={`px-2 py-1 rounded-full text-xs ${
-                      customer.status === "Completed"
-                        ? "bg-blue-100 text-blue-700"
-                        : "bg-yellow-100 text-yellow-700"
-                    }`}
-                  >
-                    {customer.status}
-                  </span>
-                  <span
-                    className={`mt-1 px-2 py-1 rounded-full text-xs ${
-                      customer.premiumStatus === "Premium"
-                        ? "bg-purple-100 text-purple-700"
-                        : "bg-gray-100 text-gray-700"
-                    }`}
-                  >
-                    {customer.premiumStatus}
-                  </span>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
-                <div className="flex items-center gap-1">
-                  <Clock className="h-3 w-3 text-blue-500" />
-                  <span className="text-gray-500">Date:</span>
-                  <span className="font-medium text-blue-700">
-                    {customer.date}
-                  </span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <span className="text-gray-500">Experience:</span>
-                  <span className="font-medium text-blue-700">
-                    {customer.experience}
-                  </span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <span className="text-gray-500">Add-ons:</span>
-                  <span className="font-medium text-blue-700">
-                    {customer.addons || "None"}
-                  </span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <span className="text-gray-500">Contact:</span>
-                  <span className="font-medium text-blue-700">
-                    {customer.contact}
-                  </span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <span className="text-gray-500">Booking:</span>
-                  <span className="font-medium text-blue-700">
-                    {customer.bookingType}
-                  </span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <DollarSign className="h-3 w-3 text-blue-500" />
-                  <span className="text-gray-500">Amount:</span>
-                  <span className="font-medium text-blue-700">
-                    {customer.amountPaid}
-                  </span>
-                </div>
-              </div>
+    return (
+      <>
+        {/* KPI Cards */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="bg-white p-4 rounded-xl shadow border-l-4 border-blue-500">
+            <div className="flex justify-between items-center">
+              <p className="text-sm text-gray-500">Experiences</p>
+              <Calendar className="h-5 w-5 text-blue-500" />
             </div>
-          ))}
+            <h2 className="text-2xl font-bold text-blue-700">
+              {stats.totalBookings}
+            </h2>
+          </div>
+          <div className="bg-white p-4 rounded-xl shadow border-l-4 border-blue-500">
+            <div className="flex justify-between items-center">
+              <p className="text-sm text-gray-500">Revenue</p>
+              <DollarSign className="h-5 w-5 text-blue-500" />
+            </div>
+            <h2 className="text-2xl font-bold text-blue-700">
+              ₱{stats.totalRevenue?.toLocaleString()}
+            </h2>
+          </div>
+          <div className="bg-white p-4 rounded-xl shadow border-l-4 border-blue-500">
+            <div className="flex justify-between items-center">
+              <p className="text-sm text-gray-500">Rating</p>
+              <Star className="h-5 w-5 text-blue-500" />
+            </div>
+            <h2 className="text-2xl font-bold text-blue-700">
+              {stats.avgRating} ⭐
+            </h2>
+          </div>
+          <div className="bg-white p-4 rounded-xl shadow border-l-4 border-blue-500">
+            <div className="flex justify-between items-center">
+              <p className="text-sm text-gray-500">Cancellations</p>
+              <X className="h-5 w-5 text-blue-500" />
+            </div>
+            <h2 className="text-2xl font-bold text-blue-700">{stats.noShows}</h2>
+          </div>
+          <div className="bg-white p-4 rounded-xl shadow border-l-4 border-blue-500">
+            <div className="flex justify-between items-center">
+              <p className="text-sm text-gray-500">Return Rate</p>
+              <Users className="h-5 w-5 text-blue-500" />
+            </div>
+            <h2 className="text-2xl font-bold text-blue-700">
+              {stats.customerRetention}%
+            </h2>
+            <div className="mt-1 text-xs text-gray-500">
+              {stats.returningCustomers} returning out of {stats.totalCustomers} customers
+            </div>
+          </div>
+          <div className="bg-white p-4 rounded-xl shadow border-l-4 border-blue-500">
+            <div className="flex justify-between items-center">
+              <p className="text-sm text-gray-500">Inquiries</p>
+              <MessageSquare className="h-5 w-5 text-blue-500" />
+            </div>
+            <h2 className="text-2xl font-bold text-blue-700">
+              {stats.totalCommunications}
+            </h2>
+          </div>
         </div>
-      </div>
 
-      {/* Upcoming Experiences */}
-      <div className="bg-white p-4 rounded-xl shadow mt-6 border-t-4 border-blue-500">
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="font-semibold text-blue-700 flex items-center gap-2">
-            <Calendar className="h-5 w-5 text-blue-500" />
-            Upcoming Experiences
-          </h3>
-          <button
-            onClick={sendReminders}
-            className="px-3 py-1 text-sm bg-blue-100 hover:bg-blue-200 text-blue-700 rounded-lg flex items-center gap-1 transition-colors"
-          >
-            <Bell className="h-4 w-4" />
-            Send Reminders
-          </button>
+        {/* Charts */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+          <div className="bg-white p-4 rounded-xl shadow border-t-4 border-blue-500">
+            <div className="flex justify-between items-center mb-2">
+              <h3 className="font-semibold text-blue-700">📈 Experience Bookings</h3>
+              <span className="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full">
+                {period}
+              </span>
+            </div>
+            <ResponsiveContainer width="100%" height={200}>
+              <BarChart data={bookingData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="date" />
+                <YAxis domain={getBookingDomain()} />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="bookings" name="Bookings" fill="#3b82f6" />
+                <Bar
+                  dataKey="cancellations"
+                  name="Cancellations"
+                  fill="#93c5fd"
+                />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+          <div className="bg-white p-4 rounded-xl shadow border-t-4 border-blue-500">
+            <div className="flex justify-between items-center mb-2">
+              <h3 className="font-semibold text-blue-700">🌟 Experience Ratings</h3>
+              <span className="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full">
+                {period}
+              </span>
+            </div>
+            <ResponsiveContainer width="100%" height={200}>
+              <BarChart data={experienceRatings}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis domain={[0, 5]} ticks={[0, 1, 2, 3, 4, 5]} />
+                <Tooltip />
+                <Bar
+                  dataKey="rating"
+                  name="Rating"
+                  fill="#1976d2"
+                  label={{ position: 'top', formatter: (value) => `${value.toFixed(1)}⭐` }}
+                />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
         </div>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm text-left">
-            <thead>
-              <tr className="text-blue-700 border-b border-blue-100">
-                <th className="p-2">#</th>
-                <th className="p-2">Customer</th>
-                <th className="p-2">Date</th>
-                <th className="p-2">Time</th>
-                <th className="p-2">Experience</th>
-                <th className="p-2">Status</th>
-                <th className="p-2">Communication</th>
-              </tr>
-            </thead>
-            <tbody>
-              {upcoming.map((appt) => (
-                <tr
-                  key={appt.id}
-                  className="border-b border-blue-50 hover:bg-blue-50 transition-colors"
-                >
-                  <td className="p-2">{appt.id}</td>
-                  <td className="p-2 font-medium">{appt.name}</td>
-                  <td className="p-2">{appt.date}</td>
-                  <td className="p-2">{appt.time}</td>
-                  <td className="p-2">{appt.experience}</td>
-                  <td className="p-2">
+
+        {/* Recent Customer Information */}
+        <div className="bg-white p-4 rounded-xl shadow mt-6 border-t-4 border-blue-500">
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="font-semibold text-blue-700 flex items-center gap-2">
+              <User className="h-5 w-5 text-blue-500" />
+              Recent Experience Bookings
+            </h3>
+            <span className="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full">
+              Latest Adventures
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-[13rem] overflow-auto">
+            {recentCustomers.map((customer, index) => (
+              <div
+                key={index}
+                className="bg-blue-50 p-4 rounded-lg border border-blue-100 hover:shadow-md transition-shadow"
+              >
+                <div className="flex justify-between mb-2">
+                  <div>
+                    <h4 className="font-bold text-blue-800">{customer.name}</h4>
+                    <span className="text-sm text-gray-600">
+                      {customer.gender} | {customer.age} years
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-end">
                     <span
                       className={`px-2 py-1 rounded-full text-xs ${
-                        appt.status === "Confirmed"
+                        customer.status === "Completed"
                           ? "bg-blue-100 text-blue-700"
                           : "bg-yellow-100 text-yellow-700"
                       }`}
                     >
-                      {appt.status}
+                      {customer.status}
                     </span>
-                  </td>
-                  <td className="p-2">
                     <span
-                      className={`px-2 py-1 rounded-full text-xs ${
-                        appt.contact === "Reminded"
-                          ? "bg-blue-100 text-blue-700"
+                      className={`mt-1 px-2 py-1 rounded-full text-xs ${
+                        customer.premiumStatus === "Premium"
+                          ? "bg-purple-100 text-purple-700"
                           : "bg-gray-100 text-gray-700"
                       }`}
                     >
-                      {appt.contact}
+                      {customer.premiumStatus}
                     </span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+                  <div className="flex items-center gap-1">
+                    <Clock className="h-3 w-3 text-blue-500" />
+                    <span className="text-gray-500">Date:</span>
+                    <span className="font-medium text-blue-700">
+                      {customer.date}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <span className="text-gray-500">Experience:</span>
+                    <span className="font-medium text-blue-700">
+                      {customer.experience}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <span className="text-gray-500">Add-ons:</span>
+                    <span className="font-medium text-blue-700">
+                      {customer.addons || "None"}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <span className="text-gray-500">Contact:</span>
+                    <span className="font-medium text-blue-700">
+                      {customer.contact}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <span className="text-gray-500">Booking:</span>
+                    <span className="font-medium text-blue-700">
+                      {customer.bookingType}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <DollarSign className="h-3 w-3 text-blue-500" />
+                    <span className="text-gray-500">Amount:</span>
+                    <span className="font-medium text-blue-700">
+                      {customer.amountPaid}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </>
-  );
+
+        {/* Upcoming Experiences */}
+        <div className="bg-white p-4 rounded-xl shadow mt-6 border-t-4 border-blue-500">
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="font-semibold text-blue-700 flex items-center gap-2">
+              <Calendar className="h-5 w-5 text-blue-500" />
+              Upcoming Experiences
+            </h3>
+            <button
+              onClick={sendReminders}
+              className="px-3 py-1 text-sm bg-blue-100 hover:bg-blue-200 text-blue-700 rounded-lg flex items-center gap-1 transition-colors"
+            >
+              <Bell className="h-4 w-4" />
+              Send Reminders
+            </button>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm text-left">
+              <thead>
+                <tr className="text-blue-700 border-b border-blue-100">
+                  <th className="p-2">#</th>
+                  <th className="p-2">Customer</th>
+                  <th className="p-2">Date</th>
+                  <th className="p-2">Time</th>
+                  <th className="p-2">Experience</th>
+                  <th className="p-2">Status</th>
+                  <th className="p-2">Communication</th>
+                </tr>
+              </thead>
+              <tbody>
+                {upcoming.map((appt) => (
+                  <tr
+                    key={appt.id}
+                    className="border-b border-blue-50 hover:bg-blue-50 transition-colors"
+                  >
+                    <td className="p-2">{appt.id}</td>
+                    <td className="p-2 font-medium">{appt.name}</td>
+                    <td className="p-2">{appt.date}</td>
+                    <td className="p-2">{appt.time}</td>
+                    <td className="p-2">{appt.experience}</td>
+                    <td className="p-2">
+                      <span
+                        className={`px-2 py-1 rounded-full text-xs ${
+                          appt.status === "Confirmed"
+                            ? "bg-blue-100 text-blue-700"
+                            : "bg-yellow-100 text-yellow-700"
+                        }`}
+                      >
+                        {appt.status}
+                      </span>
+                    </td>
+                    <td className="p-2">
+                      <span
+                        className={`px-2 py-1 rounded-full text-xs ${
+                          appt.contact === "Reminded"
+                            ? "bg-blue-100 text-blue-700"
+                            : "bg-gray-100 text-gray-700"
+                        }`}
+                      >
+                        {appt.contact}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </>
+    );
+  };
 
   const BookingsTab = () => {
     const BLUE_COLORS = [
@@ -1362,10 +1147,12 @@ const Dashboard = () => {
                   cy="50%"
                   innerRadius={60}
                   outerRadius={80}
-                  fill="#2196f3"
+                  fill="#8884d8"
                   paddingAngle={5}
                   dataKey="value"
-                  label={({ name, value }) => `${name}: ${value}`}
+                  label={({ name, percent }) =>
+                    `${name}: ${(percent * 100).toFixed(0)}%`
+                  }
                 >
                   {customerData.map((entry, index) => (
                     <Cell
@@ -2056,6 +1843,25 @@ const Dashboard = () => {
     </>
   );
 
+  const calculatePackageRevenue = (exp1, exp2) => {
+    return recentCustomers.reduce((sum, customer) => {
+      if (customer.experience === exp1 || customer.experience === exp2) {
+        return sum + parseInt(customer.amountPaid.replace(/[^0-9]/g, ''));
+      }
+      return sum;
+    }, 0);
+  };
+
+  const getExperienceRevenue = (experience) => {
+    return recentCustomers
+      .filter(customer => customer.experience === experience)
+      .reduce((sum, customer) => sum + parseInt(customer.amountPaid.replace(/[^0-9]/g, '')), 0);
+  };
+
+  const getExperienceCount = (experience) => {
+    return recentCustomers.filter(customer => customer.experience === experience).length;
+  };
+
   return (
     <div className="p-4 bg-gray-50 min-h-screen">
       <div className="mb-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -2084,7 +1890,7 @@ const Dashboard = () => {
           </select>
 
           <button
-            onClick={() => generateData()}
+            onClick={() => calculateEnhancedStats()}
             className="bg-blue-500 hover:bg-blue-600 text-white rounded-lg px-4 py-2 text-sm flex items-center gap-2"
           >
             <RefreshCw className="h-4 w-4" />
@@ -2170,5 +1976,5 @@ const Dashboard = () => {
     </div>
   );
 };
-
+///asdadasdas
 export default Dashboard;
